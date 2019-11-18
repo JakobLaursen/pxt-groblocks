@@ -132,7 +132,7 @@ export function setTimer(timerFra: number, timerTil: number){
 }
 
 
-var rule [];
+
   /**
   * Haps
   */
@@ -155,9 +155,8 @@ var rule [];
 
 
    //%block="Klokken: fra %test| til %test2"
-       export function randomBoolean(test: number, test2: number): boolean {
-           return grostart;
-       }
+  //     export function randomBoolean(test: number, test2: number): boolean {
+    //   }
 
 
 
