@@ -43,13 +43,12 @@ enum lightList {
 //% weight=100 color=#0f9c11 icon="\f06c"
 namespace groblocks {
 
-function init(){
-let groID = serial.readUntil(serial.delimiters(Delimiters.Comma));
+//function init(){
+//let groID = serial.readUntil(serial.delimiters(Delimiters.Comma));
 
 
 
-}
-
+//}
 
 
 
@@ -97,7 +96,7 @@ let groID = serial.readUntil(serial.delimiters(Delimiters.Comma));
   */
   //% blockId=mockUpLight block="Light %lightList, Brightness %brightness"
   export function setLights(type: lightList, brightness: number){
-
+  serial.writeString("Light; ",  type,  "; ", brightness);
   }
 
   /**
@@ -133,7 +132,7 @@ export function setTimer(timerFra: number, timerTil: number){
 }
 
 
-
+var rule [];
   /**
   * Haps
   */
@@ -148,12 +147,16 @@ export function setTimer(timerFra: number, timerTil: number){
       */
       //% block="on event"
       export function grostart(handler: () => void) {
+
+
+
+
    }
 
 
    //%block="Klokken: fra %test| til %test2"
        export function randomBoolean(test: number, test2: number): boolean {
-           return false;
+           return grostart;
        }
 
 
