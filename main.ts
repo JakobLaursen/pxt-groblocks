@@ -95,9 +95,9 @@ namespace groblocks {
   * Mock-up Light block
   */
   //% blockId=mockUpLight block="Light %lightList, Brightness %brightness"
-  export function setLights(type: lightList, brightness: number){
-  serial.writeString("Light; ",  type,  "; ", brightness);
-  }
+//  export function setLights(type: lightList, brightness: number){
+  //serial.writeString("Light; ",  type,  "; ", brightness);
+  //}
 
   /**
   * Mock-up pump block
@@ -146,12 +146,12 @@ export function setTimer(timerFra: number, timerTil: number){
       * This is an event handler block
       */
       //% block="on event"
-      export function grostart(handler: () => void) {
+//      export function grostart(handler: () => void) {
 
 
 
 
-   }
+  // }
 
 
    //%block="Klokken: fra %test| til %test2"
