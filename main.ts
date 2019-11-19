@@ -1,3 +1,4 @@
+
 /*
 Sensors		         Actuators
 Clock		           Controlled fan
@@ -43,12 +44,15 @@ enum lightList {
 //% weight=100 color=#0f9c11 icon="\f06c"
 namespace groblocks {
 
-//function init(){
-//let groID = serial.readUntil(serial.delimiters(Delimiters.Comma));
+function init(){
+    basic.showString("OK")
+    serial.redirect(
+    SerialPin.P0,
+    SerialPin.P1,
+    BaudRate.BaudRate9600
+    )
 
-
-
-//}
+}
 
 
 
@@ -90,14 +94,21 @@ namespace groblocks {
 
 
 
-
+//  var str1 = "Hello ";
+//  var str2 = "world!";
+//  var str3 = " Have a nice day!";
+//  var res = str1.concat(str2, str3);
   /**
   * Mock-up Light block
   */
   //% blockId=mockUpLight block="Light %lightList, Brightness %brightness"
-//  export function setLights(type: lightList, brightness: number){
-  //serial.writeString("Light; ",  type,  "; ", brightness);
-  //}
+  export function setLights(lightType: lightList, lightBrigt: number){
+    let lT = lightType.toString();
+    let lB = lightBrigt.toString();
+    let output = "Light" + lT + lB
+
+    serial.writeString(output)
+  }
 
   /**
   * Mock-up pump block
@@ -199,7 +210,7 @@ export function setTimer(timerFra: number, timerTil: number){
   //}
 
 
-
+init();
 
 
 }
