@@ -72,16 +72,21 @@ function init(){
    * Mock-up Hummidity
    */
   //% block
-  export function Hummidity (): number {
+  export function Humidity (): number {
       return 0;
   }
 
+
+  //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door|;
   /**
    * Mock-up co2
    */
   //% block
-  export function Co2(): number {
-      return 0;
+  export function CO_2(): number {
+    let coIn = basic.showString(serial.readString())
+    let CoOut = coIn.split('|');
+    serial.writeString(coOut[4])
+
   }
 
   /**
@@ -94,10 +99,7 @@ function init(){
 
 
 
-//  var str1 = "Hello ";
-//  var str2 = "world!";
-//  var str3 = " Have a nice day!";
-//  var res = str1.concat(str2, str3);
+
   /**
   * Mock-up Light block
   */
