@@ -83,9 +83,9 @@ function init(){
    */
   //% block
   export function CO_2(): number {
-    let coIn = basic.showString(serial.readString())
+    let coIn = serial.readString();
     let CoOut = coIn.split('|');
-    serial.writeString(coOut[4])
+    serial.writeString(coOut[4]);
 
   }
 
@@ -107,9 +107,9 @@ function init(){
   export function setLights(lightType: lightList, lightBrigt: number){
     let lT = lightType.toString();
     let lB = lightBrigt.toString();
-    let output = "Light" + lT + lB
+    let output = "Light" + lT + lB;
 
-    serial.writeString(output)
+    serial.writeString(output);
   }
 
   /**
