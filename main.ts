@@ -78,11 +78,12 @@ function init(){
 
 
   //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door|;
+
   /**
    * Mock-up co2
    */
   //% block
-  export function CO2(): number {
+  export function Co2(): number {
     let coIn = serial.readString();
     let coOut = coIn.split('|');
     let coDisp = Number(coOut[4])
