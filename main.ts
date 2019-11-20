@@ -85,8 +85,10 @@ function init(){
   export function CO2(): number {
     let coIn = serial.readString();
     let coOut = coIn.split('|');
+    let coDisp = Number(coOut[4])
+
     serial.writeString(coOut[4]);
-      return 0;
+      return coDisp;
   }
 
   /**
