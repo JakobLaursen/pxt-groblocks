@@ -82,11 +82,11 @@ function init(){
    * Mock-up co2
    */
   //% block
-  export function CO_2(): number {
+  export function CO2(): number {
     let coIn = serial.readString();
-    let CoOut = coIn.split('|');
+    let coOut = coIn.split('|');
     serial.writeString(coOut[4]);
-
+      return 0;
   }
 
   /**
