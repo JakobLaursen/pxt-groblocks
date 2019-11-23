@@ -105,7 +105,7 @@ let clk = 7;
 export function co2Sensor(): number {
   let coIn = serial.readString();
   let coOut = coIn.split('|');
-  let coDisp = Number(coOut[4]);
+  let coDisp = parseInt(coOut[4]);
   serial.writeString(coOut[4]);
     return coDisp;
 }
