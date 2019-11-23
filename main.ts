@@ -9,6 +9,12 @@ Co2	               5 pumps
 Sequence #
 */
 
+
+
+
+
+
+
 enum actuList {
   //% block="Heater"
   heater,
@@ -54,12 +60,26 @@ function init(){
 
 }
 
+//ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door|;
+function readData(index) {
+  let readIn = serial.readString();
+  let readOut = readIn.split("|");
+  let readDisp = Number(readOut[index]);
 
+  serial.writeString(readDisp);
+  return readDisp;
 
+  }
+//Indexing for readData
+let seq = 1;
+let hum = 2;
+let water = 3;
+let co2 = 4;
+let temp = 5;
+let door = 6;
 
-
-
-
+// #####################   SENSORS   #################################
+//ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door| clock
   /**
   * Mock-up Clock
   */
@@ -69,39 +89,57 @@ function init(){
   }
 
   /**
-   * Mock-up Hummidity
+   * Luftfugtighedsmåler 0-100
    */
   //% block
-  export function Humidity (): number {
-      return 0;
+  export function HumSensor(): number {
+    let x = readData(hum);
+    return x ;
   }
-
-
-  //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door|;
-
   /**
-   * Mock-up co2
+   * Vandstandsmåler 0-100
    */
   //% block
-  export function Co2(): number {
-    let coIn = serial.readString();
-    let coOut = coIn.split('|');
-    let coDisp = Number(coOut[4])
+  export function waterSensor(): number {
+    let x = readData(water);
 
-    serial.writeString(coOut[4]);
-      return coDisp;
-  }
+    return x ;
+}
 
-  /**
-   * Mock-up Temperature
-   */
-  //% block
-  export function Temperature(): number {
-      return 0;
-  }
+/**
+ * CO2-Måler
+ */
+//% block
+export function co2Sensor(): number {
+  let coIn = serial.readString();
+  let coOut = coIn.split('|');
+  let coDisp = Number(coOut[4]);
+  serial.writeString(coOut[4]);
+    return coDisp;
+}
 
 
+/**
+ * Temperatursensor
+ */
+//% block
+export function tempSensor(): number {
+  let x = readData(temp);
+  return x ;
+}
 
+export function doorSensor(): number {
+  let x = readData(door);
+  return x;
+}
+
+export function clockSensor(): number {
+  let x = readData(clk);
+
+  return x;
+}
+
+// ########################  Actuators  ############################
 
   /**
   * Mock-up Light block
