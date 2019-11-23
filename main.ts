@@ -59,17 +59,17 @@ function init(){
 function readData(index) {
   let readIn = serial.readString();
   let readOut = readIn.split("|");
-  let readDisp = parseInt(readOut[index]);
+  let readDisp = readOut[index];
 
   serial.writeString(readDisp);
-  return readDisp;
+  return parseInt(readDisp);
   }
 
 //Indexing for readData
-let seq = 1;
+//let seq = 1;
 let hum = 2;
 let water = 3;
-let co2 = 4;
+//let co2 = 4;
 let temp = 5;
 let door = 6;
 let clk = 7;
