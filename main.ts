@@ -10,7 +10,7 @@ Sequence #
 */
 
 
-//Error param1..4 ikke defineret type af data + index i readData.. 
+//Error param1..4 ikke defineret type af data + index i readData..
 
 
 enum actuList {
@@ -141,11 +141,11 @@ let clk = 7;
 
 // ########################  Actuators  ############################
 
-function sendData(actuName, param1, param2, param3, param4){
-  let stringParam1 = param1.tostring();
-  let stringParam2 = param2.tostring();
-  let stringParam3 = param3.tostring();
-  let stringParam4 = param4.tostring();
+function sendData(actuName: string, param1: number, param2: number, param3: number, param4: number){
+  let stringParam1 = param1.toString();
+  let stringParam2 = param2.toString();
+  let stringParam3 = param3.toString();
+  let stringParam4 = param4.toString();
 
   let output = actuName + stringParam1 + stringParam2 + stringParam3 + stringParam4;
   serial.writeString(output.trim());
