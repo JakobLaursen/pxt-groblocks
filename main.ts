@@ -9,6 +9,10 @@ Co2	               5 pumps
 Sequence #
 */
 
+
+//Error param1..4 ikke defineret type af data + index i readData.. 
+
+
 enum actuList {
   //% block="Heater"
   heater,
