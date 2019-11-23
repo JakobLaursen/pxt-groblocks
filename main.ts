@@ -65,7 +65,7 @@ function readData(index) {
   return readDisp;
   }
 
-Indexing for readData
+//Indexing for readData
 let seq = 1;
 let hum = 2;
 let water = 3;
@@ -159,7 +159,7 @@ function sendData(actuName, param1, param2, param3, param4){
     serial.writeString(output);
   }
 
-  
+
 
   /**
   * Mock-up actuator block
