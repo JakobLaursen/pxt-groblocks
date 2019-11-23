@@ -55,17 +55,16 @@ function init(){
 }
 
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door|;
-/*
+
 function readData(index) {
   let readIn = serial.readString();
   let readOut = readIn.split("|");
-  let readDisp = Number(readOut[index]);
+  let readDisp = parseInt(readOut[index]);
 
   serial.writeString(readDisp);
   return readDisp;
-
   }
-/*
+
 Indexing for readData
 let seq = 1;
 let hum = 2;
@@ -74,67 +73,65 @@ let co2 = 4;
 let temp = 5;
 let door = 6;
 let clk = 7;
-*/
+
 
 // #####################   SENSORS   #################################
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door| clock
 
 
   /**
-   * Luftfugtighedsmåler 0-100
-   /
+  * Luftfugtighedsmåler 0-100
+  */
   //% block
-    export function Luftfugtighedsmåler(): number {
+  export function Luftfugtighedsmåler(): number {
     let x = readData(hum);
-    return x ;
+  return x ;
   }
   /**
-   * Vandstandsmåler 0-100
-   /
+  * Vandstandsmåler 0-100
+  */
   //% block
   export function Vandstandsmåler(): number {
     let x = readData(water);
+  return x ;
+  }
 
-    return x ;
-}
+  /**
+  * CO2-Måler
+  */
+  //% block
+  export function co2Sensor(): number {
+    let coIn = serial.readString();
+    let coOut = coIn.split('|');
+    let coDisp = parseInt(coOut[4]);
+    serial.writeString(coOut[4]);
+  return coDisp;
+  }
 
-/**
- * CO2-Måler
- */
-//% block
-export function co2Sensor(): number {
-  let coIn = serial.readString();
-  let coOut = coIn.split('|');
-  let coDisp = parseInt(coOut[4]);
-  serial.writeString(coOut[4]);
-    return coDisp;
-}
-
-/**
+  /**
  * Temperatursensor
- /
-//% block
-export function tempSensor(): number {
-  let x = readData(temp);
+ */
+ //% block
+ export function tempSensor(): number {
+   let x = readData(temp);
   return x ;
 }
 
-/**
+  /**
  * DoorSensor
- /
-//% block
-export function doorSensor(): number {
-  let x = readData(door);
+ */
+ //% block
+  export function doorSensor(): number {
+    let x = readData(door);
   return x;
 }
 
-/**
- * Temperatursensor
- /
-//% block
-export function clockSensor(): number {
-  let x = readData(clk);
-
+  /**
+  * Temperatursensor
+  */
+  //% block
+  export function clockSensor(): number {
+    let x = readData(clk);
   return x;
 }
 
@@ -149,12 +146,12 @@ function sendData(actuName, param1, param2, param3, param4){
   let output = actuName + stringParam1 + stringParam2 + stringParam3 + stringParam4;
   serial.writeString(output.trim());
 }
-*/
+
   /**
   * Mock-up Light block
   */
-  //% blockId=mockUpLight block="Light %lightList, Brightness %brightness"
-  export function setLights(lightType: lightList, lightBrigt: number){
+  //% blockId=mockUpLight block="%lightList, Brightness %brightness"
+  export function groLys(lightType: lightList, lightBrigt: number){
     let lT = lightType.toString();
     let lB = lightBrigt.toString();
     let output = "Light" + lT + lB;
@@ -162,13 +159,7 @@ function sendData(actuName, param1, param2, param3, param4){
     serial.writeString(output);
   }
 
-  /**
-  * Mock-up pump block
-  /
-  //% blockId=mockUpFan block="Pump %pumpList| with speed %speed"
-  export function setPump(type: pumpList, speed: number){
-  }
-
+  
 
   /**
   * Mock-up actuator block
