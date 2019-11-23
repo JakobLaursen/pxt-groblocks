@@ -55,7 +55,7 @@ function init(){
 }
 
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door|;
-function readData(index) {
+function readData(index): number {
   let readIn = serial.readString();
   let readOut = readIn.split("|");
   let readDisp = Number(readOut[index]);
