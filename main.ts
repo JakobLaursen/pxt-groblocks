@@ -15,9 +15,9 @@ Sequence #
 
 enum actuList {
   //% block="Heater"
-  heater,
+  heater = "heater",
   //% block="fan"
-  fan,
+  fan = "Fan"
 }
 
 enum pumpList {
@@ -79,16 +79,20 @@ let temp = 5;
 let door = 6;
 let clk = 7;
 
+/*
+function foo() {
+  for (var i = 0; i < arguments.length; i++) {
+    console.log(arguments[i]);
+  }
+}
+*/
 
+function sendData(actuType: string, ...restArg: string[]){
+  for (var i = 0; i < restArg.length; i++) {
+    var sendOutput = sendOutput + ", " + restArg[i]
+  }
+  sendOutput = actuType + ";" + sendOutput + "|"
 
-function sendData(actuName: string, p1: number, p2: number, p3: number, p4: number){
-  let sP1 = p1.toString();
-  let sP2 = p2.toString();
-  let sP3 = p3.toString();
-  let sP4 = p4.toString();
-
-  let output = actuName + sP1 + sP2 + sP3 + sP4;
-  serial.writeString(output.trim());
 }
 
 
@@ -172,11 +176,15 @@ function sendData(actuName: string, p1: number, p2: number, p3: number, p4: numb
 
   /**
   * Mock-up actuator block
-  /
+  */
   //% blockId=mockUpActuator block="Choose actuator %actuList| intensity %randNum"
   export function setActuator(mode:actuList, randNum: number){
-
+    sendData(mode,randNum)
   }
+
+
+
+
 
   /**
   * Mock-up timer block
