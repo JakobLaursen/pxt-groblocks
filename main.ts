@@ -69,7 +69,7 @@ function readData(index: number): number {
   serial.writeString(readDisp);
   return parseInt(readDisp);
   }
-
+//sasa
 //Indexing for readData
 //let seq = 1;
 let hum = 2;
