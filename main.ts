@@ -140,7 +140,7 @@ let clk = 7;
 }
 
 // ########################  Actuators  ############################
-
+/**
 function sendData(actuName: string, param1: number, param2: number, param3: number, param4: number){
   let stringParam1 = param1.toString();
   let stringParam2 = param2.toString();
@@ -150,7 +150,7 @@ function sendData(actuName: string, param1: number, param2: number, param3: numb
   let output = actuName + stringParam1 + stringParam2 + stringParam3 + stringParam4;
   serial.writeString(output.trim());
 }
-
+*/
   /**
   * Mock-up Light block
   */
