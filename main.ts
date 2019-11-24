@@ -80,6 +80,20 @@ let door = 6;
 let clk = 7;
 
 
+
+function sendData(actuName: string, p1: number, p2: number, p3: number, p4: number){
+  let sP1 = p1.toString();
+  let sP2 = p2.toString();
+  let sP3 = p3.toString();
+  let sP4 = p4.toString();
+
+  let output = actuName + sP1 + sP2 + sP3 + sP4;
+  serial.writeString(output.trim());
+}
+
+
+
+
 // #####################   SENSORS   #################################
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door| clock
 
@@ -141,17 +155,7 @@ let clk = 7;
 }
 
 // ########################  Actuators  ############################
-/**
-function sendData(actuName: string, param1: number, param2: number, param3: number, param4: number){
-  let stringParam1 = param1.toString();
-  let stringParam2 = param2.toString();
-  let stringParam3 = param3.toString();
-  let stringParam4 = param4.toString();
 
-  let output = actuName + stringParam1 + stringParam2 + stringParam3 + stringParam4;
-  serial.writeString(output.trim());
-}
-*/
   /**
   * Mock-up Light block
   */
