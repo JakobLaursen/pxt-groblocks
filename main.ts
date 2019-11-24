@@ -89,9 +89,10 @@ function foo() {
 
 function sendData(actuType: string, ...restArg: string[]){
   for (var i = 0; i < restArg.length; i++) {
-    var sendOutput: string = sendOutput + ", " + restArg[i]
+    actuType += ", " + restArg[i];
   }
-  sendOutput = actuType + ";" + sendOutput + "|"
+  return actuType
+  serial.writeString(actuType);
 
 }
 
