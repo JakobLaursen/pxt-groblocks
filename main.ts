@@ -89,7 +89,7 @@ function foo() {
 
 function sendData(actuType: string, ...restArg: string[]){
   for (var i = 0; i < restArg.length; i++) {
-    var sendOutput = sendOutput + ", " + restArg[i]
+    var sendOutput: string = sendOutput + ", " + restArg[i]
   }
   sendOutput = actuType + ";" + sendOutput + "|"
 
