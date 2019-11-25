@@ -27,17 +27,16 @@ function sendData(actuType: number, ...restArg: number[]){
 */
 
 
-enum actuList {
+enum airList {
   //% block="Varmelegeme"
   heater,
   //% block="Blæser"
   fan
+  //%block="Ventilation"
 }
 
 
-enum pumpList {
-  //% block="Air Circulation"
-  airPump,
+enum liqList {
   //% block="Water circulation"
   waterPump,
   //% block="Airation"
@@ -61,7 +60,7 @@ enum lightList {
 
 // groblocks graphics
 //% weight=100 color=#0f9c11 icon="\f06c"
-//% groups="['Actuators', Sensors']"
+//% groups="['Aktuatore', Sensore']"
 namespace groblocks {
 
 // ############################# Init #########################
@@ -96,11 +95,19 @@ let temp = 5;
 let door = 6;
 let clk = 7;
 
-function sendData(actuType: number, param1: number){
-  let output = actuType.toString() + "; " + param1.toString();
+function sendData(actuCat: number, actuType: number, actuSet: number){
+  let output = actuCat.toString() + ";" + actuType.toString() + "," + param1.toString();
   serial.writeString(output);
 
 }
+
+// actuCat index
+let lightCat: number = 0;
+let airCat: number = 1;
+let pumpCat: number = 2;
+
+
+
 
 // #####################   SENSORS   #################################
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door| clock
@@ -110,7 +117,7 @@ function sendData(actuType: number, param1: number){
   * Luftfugtighedsmåler 0-100
   */
   //% block
-  //% group="Sensors"
+  //% group="Sensore"
   export function Luftfugtighedsmåler(): number {
     let x = readData(hum);
   return x ;
@@ -119,7 +126,7 @@ function sendData(actuType: number, param1: number){
   * Vandstandsmåler 0-100
   */
   //% block
-  //% group="Sensors"
+  //% group="Sensore"
   export function Vandstandsmåler(): number {
     let x = readData(water);
   return x ;
@@ -129,7 +136,7 @@ function sendData(actuType: number, param1: number){
   * CO2-Måler
   */
   //% block
-  //% group="Sensors"
+  //% group="Sensore"
   export function co2Sensor(): number {
     let coIn = serial.readString();
     let coOut = coIn.split('|');
@@ -142,7 +149,7 @@ function sendData(actuType: number, param1: number){
  * Temperatursensor
  */
  //% block
- //% group="Sensors"
+ //% group="Sensore"
  export function tempSensor(): number {
    let x = readData(temp);
   return x ;
@@ -152,7 +159,7 @@ function sendData(actuType: number, param1: number){
  * DoorSensor
  */
  //% block
- //% group="Sensors"
+ //% group="Sensore"
   export function doorSensor(): number {
     let x = readData(door);
   return x;
@@ -162,7 +169,7 @@ function sendData(actuType: number, param1: number){
   * Temperatursensor
   */
   //% block
-  //% group="Sensors"
+  //% group="Sensore"
   export function clockSensor(): number {
     let x = readData(clk);
   return x;
@@ -174,24 +181,23 @@ function sendData(actuType: number, param1: number){
   * Mock-up Light block
   */
   //% blockId=mockUpLight block="%lightList, Brightness %brightness"
-  //% group="Actuators"
+  //% group="Aktuatore"
   export function groLys(lightType: lightList, lightBrigt: number){
     let lT = lightType.toString();
     let lB = lightBrigt.toString();
     let output = "Light" + lT + lB;
-
     serial.writeString(output);
   }
 
 
 
   /**
-  * Mock-up actuator block
+  * Aktuatore der håndterer luften i grobotten. Varmelegemet styrer temperaturen osv.
   */
-  //% blockId=mockUpActuator block="Choose actuator %actuList| intensity %randNum"
-  //% group="Actuators"
-  export function setActuator(actu:actuList, setting: number){
-    sendData(actu,setting);
+  //% blockId=mockUpActuator block="%actuList| intensitet %randNum"
+  //% group="Aktuatore"
+  export function setActuator(actu:airList, setting: number){
+    sendData(airCat, actu, setting);
   }
 
 
