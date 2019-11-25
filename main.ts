@@ -85,12 +85,13 @@ let clk = 7;
 
 
 let text = ""
+let restArg: number[]
 function sendData(actuType: number, ...restArg: number[]){
   for (let i = 0; i < restArg.length; i++) {
 
     text += ", ";
     text += restArg[i].toString();
- 
+
   }
   let output = actuType.toString() + "; " + text;
   serial.writeString(output);
@@ -186,8 +187,8 @@ function sendData(actuType: number, ...restArg: number[]){
   * Mock-up actuator block
   */
   //% blockId=mockUpActuator block="Choose actuator %actuList| intensity %randNum"
-  export function setActuator(actu:actuList, setting: number){
-    sendData(actu,setting);
+  export function setActuator(actu:actuList, setting: number, param: number){
+    sendData(actu,setting, param);
   }
 
 
