@@ -48,7 +48,6 @@ enum lightList {
 //% weight=100 color=#0f9c11 icon="\f06c"
 namespace groblocks {
 
-var text = ""
 
 function init(){
     basic.showString("OK")
@@ -89,11 +88,11 @@ function foo() {
 }
 */
 
-function sendData(actuType: string, ...restArg: string[]){
-  for (var i = 0; i < restArg.length; i++) {
-
+function sendData(actuType: string, ...restArg: any[]){
+  for (let i = 0; i < restArg.length; i++) {
+    let text = ""
     text += ", ";
-    text += restArg[i];
+    text += restArg[i].toString();
 
   }
   let output = actuType + text;
