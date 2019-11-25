@@ -36,7 +36,7 @@ enum airList {
 }
 
 
-enum liqList {
+enum pumpList {
   //% block="Water circulation"
   waterPump,
   //% block="Airation"
@@ -96,7 +96,7 @@ let door = 6;
 let clk = 7;
 
 function sendData(actuCat: number, actuType: number, actuSet: number){
-  let output = actuCat.toString() + ";" + actuType.toString() + "," + param1.toString();
+  let output = actuCat.toString() + ";" + actuType.toString() + "," + actuSet.toString();
   serial.writeString(output);
 
 }
@@ -200,6 +200,15 @@ let pumpCat: number = 2;
     sendData(airCat, actu, setting);
   }
 
+
+  /**
+  * Aktuatore der håndterer luften i grobotten. Varmelegemet styrer temperaturen osv.
+  */
+  //% blockId=mockUpActuator block="%actuList| intensitet %randNum"
+  //% group="Aktuatore"
+  export function setPump(actu:pumpList, setting: number){
+    sendData(pumpCat, actu, setting);
+  }
 
 
 
