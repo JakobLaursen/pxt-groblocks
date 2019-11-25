@@ -14,11 +14,13 @@ Sequence #
 
 
 enum actuList {
-  //% block="Heater"
-  heater = "heater",
-  //% block="fan"
-  fan = "Fan"
+  //% block="Varmelegeme"
+  heater,
+  //% block="Blæser"
+  fan
 }
+
+
 
 enum pumpList {
   //% block="Air Circulation"
@@ -88,14 +90,14 @@ function foo() {
 }
 */
 let text = ""
-function sendData(actuType: string, ...restArg: any[]){
+function sendData(actuType: number, ...restArg: any[]){
   for (let i = 0; i < restArg.length; i++) {
 
     text += ", ";
     text += restArg[i].toString();
 
   }
-  let output = actuType + text;
+  let output = actuType.toString() + "; " + text;
   serial.writeString(output);
 
 }
@@ -183,12 +185,14 @@ function sendData(actuType: string, ...restArg: any[]){
 
 
 
+
+
   /**
   * Mock-up actuator block
   */
   //% blockId=mockUpActuator block="Choose actuator %actuList| intensity %randNum"
-  export function setActuator(mode:actuList, randNum: number){
-    sendData(mode,randNum)
+  export function setActuator(actu:actuList, setting: number){
+    sendData(actu,setting);
   }
 
 
