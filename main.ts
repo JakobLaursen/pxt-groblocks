@@ -82,20 +82,15 @@ let temp = 5;
 let door = 6;
 let clk = 7;
 
-/*
-function foo() {
-  for (var i = 0; i < arguments.length; i++) {
-    console.log(arguments[i]);
-  }
-}
-*/
+
+
 let text = ""
-function sendData(actuType: number, ...restArg: any[]){
+function sendData(actuType: number, ...restArg: number[]){
   for (let i = 0; i < restArg.length; i++) {
 
     text += ", ";
     text += restArg[i].toString();
-
+ 
   }
   let output = actuType.toString() + "; " + text;
   serial.writeString(output);
