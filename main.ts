@@ -48,6 +48,8 @@ enum lightList {
 //% weight=100 color=#0f9c11 icon="\f06c"
 namespace groblocks {
 
+var text = ""
+
 function init(){
     basic.showString("OK")
     serial.redirect(
@@ -89,12 +91,22 @@ function foo() {
 
 function sendData(actuType: string, ...restArg: string[]){
   for (var i = 0; i < restArg.length; i++) {
-    actuType += ", " + restArg[i];
+
+    text += ", " + restArg[i];
   }
-  return actuType
-  serial.writeString(actuType);
+  let output = actuType + text
+  serial.writeString(output);
 
 }
+
+
+
+var text = "";
+for (var i = 0; i < 4; i++) {
+    text += "text<br>";
+}
+$("#sth").append(text);
+
 
 //sasa
 
