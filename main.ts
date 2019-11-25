@@ -92,20 +92,17 @@ function foo() {
 function sendData(actuType: string, ...restArg: string[]){
   for (var i = 0; i < restArg.length; i++) {
 
-    text += ", " + restArg[i];
+    text += ", ";
+    text += restArg[i];
+
   }
-  let output = actuType + text
+  let output = actuType + text;
   serial.writeString(output);
 
 }
 
 
 
-var text = "";
-for (var i = 0; i < 4; i++) {
-    text += "text<br>";
-}
-$("#sth").append(text);
 
 
 //sasa
