@@ -10,7 +10,21 @@ Sequence #
 */
 
 
-//Error param1..4 ikke defineret type af data + index i readData..
+/* Doesn't work, since maakecode wont allow getlenght
+let text = ""
+let restArg: number[]
+function sendData(actuType: number, ...restArg: number[]){
+  for (let i = 0; i < restArg.length; i++) {
+
+    text += ", ";
+    text += restArg[i].toString();
+
+  }
+  let output = actuType.toString() + "; " + text;
+  serial.writeString(output);
+
+}
+*/
 
 
 enum actuList {
@@ -19,7 +33,6 @@ enum actuList {
   //% block="Blæser"
   fan
 }
-
 
 
 enum pumpList {
@@ -72,7 +85,7 @@ function readData(index: number): number {
   serial.writeString(readDisp);
   return parseInt(readDisp);
   }
-//sasa
+
 //Indexing for readData
 //let seq = 1;
 let hum = 2;
@@ -82,18 +95,8 @@ let temp = 5;
 let door = 6;
 let clk = 7;
 
-
-
-let text = ""
-let restArg: number[]
-function sendData(actuType: number, ...restArg: number[]){
-  for (let i = 0; i < restArg.length; i++) {
-
-    text += ", ";
-    text += restArg[i].toString();
-
-  }
-  let output = actuType.toString() + "; " + text;
+function sendData(actuType: number, param1: number){
+  let output = actuType.toString() + "; " + param1.toString();
   serial.writeString(output);
 
 }
