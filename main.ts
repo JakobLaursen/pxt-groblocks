@@ -87,10 +87,10 @@ function foo() {
   }
 }
 */
-
+let text = ""
 function sendData(actuType: string, ...restArg: any[]){
   for (let i = 0; i < restArg.length; i++) {
-    let text = ""
+
     text += ", ";
     text += restArg[i].toString();
 
