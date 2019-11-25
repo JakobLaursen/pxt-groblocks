@@ -50,20 +50,21 @@ enum pumpList {
 }
 
 enum lightList {
-    //% block="White light"
+    //% block="Hvidt Lys"
     whiteGrow,
-    //% block="IR light"
+    //% block="Infrarødt Lys"
     irGrow,
-    //% block="UV light"
+    //% block="Ultraviolet Lys"
     uvGrow,
 }
 
 
 // groblocks graphics
 //% weight=100 color=#0f9c11 icon="\f06c"
+//% groups="['Actuators', Sensors']"
 namespace groblocks {
 
-
+// ############################# Init #########################
 function init(){
     basic.showString("OK")
     serial.redirect(
@@ -101,13 +102,6 @@ function sendData(actuType: number, param1: number){
 
 }
 
-
-
-
-
-//sasa
-
-
 // #####################   SENSORS   #################################
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door| clock
 
@@ -116,6 +110,7 @@ function sendData(actuType: number, param1: number){
   * Luftfugtighedsmåler 0-100
   */
   //% block
+  //% group="Sensors"
   export function Luftfugtighedsmåler(): number {
     let x = readData(hum);
   return x ;
@@ -124,6 +119,7 @@ function sendData(actuType: number, param1: number){
   * Vandstandsmåler 0-100
   */
   //% block
+  //% group="Sensors"
   export function Vandstandsmåler(): number {
     let x = readData(water);
   return x ;
@@ -133,6 +129,7 @@ function sendData(actuType: number, param1: number){
   * CO2-Måler
   */
   //% block
+  //% group="Sensors"
   export function co2Sensor(): number {
     let coIn = serial.readString();
     let coOut = coIn.split('|');
@@ -145,6 +142,7 @@ function sendData(actuType: number, param1: number){
  * Temperatursensor
  */
  //% block
+ //% group="Sensors"
  export function tempSensor(): number {
    let x = readData(temp);
   return x ;
@@ -154,6 +152,7 @@ function sendData(actuType: number, param1: number){
  * DoorSensor
  */
  //% block
+ //% group="Sensors"
   export function doorSensor(): number {
     let x = readData(door);
   return x;
@@ -163,6 +162,7 @@ function sendData(actuType: number, param1: number){
   * Temperatursensor
   */
   //% block
+  //% group="Sensors"
   export function clockSensor(): number {
     let x = readData(clk);
   return x;
@@ -174,6 +174,7 @@ function sendData(actuType: number, param1: number){
   * Mock-up Light block
   */
   //% blockId=mockUpLight block="%lightList, Brightness %brightness"
+  //% group="Actuators"
   export function groLys(lightType: lightList, lightBrigt: number){
     let lT = lightType.toString();
     let lB = lightBrigt.toString();
@@ -184,14 +185,13 @@ function sendData(actuType: number, param1: number){
 
 
 
-
-
   /**
   * Mock-up actuator block
   */
   //% blockId=mockUpActuator block="Choose actuator %actuList| intensity %randNum"
-  export function setActuator(actu:actuList, setting: number, param: number){
-    sendData(actu,setting, param);
+  //% group="Actuators"
+  export function setActuator(actu:actuList, setting: number){
+    sendData(actu,setting);
   }
 
 
@@ -215,7 +215,7 @@ export function setClock(clockFra: number, clcokTil: number){
     * prints string on LEDS and on serial port
     * @param testString string
     */
-    //% weight=99 blockGap=8
+    //% weight=101 blockGap=8
     //% blockId=testSerialPrint block="Test Serial print: %testString"
     export function testSerialPrint(testString: string) : void {
       basic.showString(testString);
