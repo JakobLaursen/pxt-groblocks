@@ -83,6 +83,7 @@ function readData(index: number): number {
   let readDisp = readOut[index];
 
   serial.writeString(readDisp);
+  basic.showString(redDisp);
   return parseInt(readDisp);
   }
 
@@ -91,7 +92,7 @@ function readData(index: number): number {
 let hum = 2;
 let water = 3;
 //let co2 = 4;
-let temp = 5;
+let temp = 5
 let door = 6;
 let clk = 7;
 
@@ -118,10 +119,7 @@ let pumpCat: number = 2;
   */
   //% block
   //% group="Sensore"
-  export function Luftfugtighedsmåler(): number {
-    let x = readData(hum);
-  return x ;
-  }
+
   /**
   * Vandstandsmåler 0-100
   */
@@ -153,6 +151,11 @@ let pumpCat: number = 2;
  export function tempSensor(): number {
    let x = readData(temp);
   return x ;
+}
+
+export function Luftfugtighedsmåler(): number {
+  let x = readData(hum);
+return x ;
 }
 
   /**
