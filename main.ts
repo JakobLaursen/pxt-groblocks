@@ -83,7 +83,7 @@ function readData(index: number): number {
   let readDisp = readOut[index];
 
   serial.writeString(readDisp);
-  basic.showString(redDisp);
+  basic.showString(readDisp);
   return parseInt(readDisp);
   }
 
