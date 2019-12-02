@@ -183,13 +183,13 @@ let clk = 2;
   //% group="Aktuatore"
   export function groLys(lightType: lightList, lightBrigt: number){
     let lB = lightBrigt.toString();
-    if (lightType == 1){
+    if (lightType == 0){
       let output = "a:" + lB + "|x";
       serial.writeString(output);
-    } else if (lightType == 2){
+    } else if (lightType == 1){
       let output = "b:" + lB + "|x";
       serial.writeString(output);
-    } else if (lightType == 3){
+    } else if (lightType == 2){
         let output = "c:" + lB + "|x";
         serial.writeString(output);
   }
