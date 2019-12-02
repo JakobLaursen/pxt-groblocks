@@ -55,17 +55,20 @@ let airCat: number = 1;
 let pumpCat: number = 2;
 
 
-function readData(index: number): number {
+
+function readData(index: number, listABC: String): number {
   let readIn = serial.readString();
   let readOut = readIn.split("|");
   let readDisp = readOut[index];
+  if (readOut[0] == listABC){
   serial.writeString(readDisp);
   basic.showString(readDisp);
-    return parseInt(readDisp);
+  return parseInt(readDisp);
   }
+}
 
 
-
+///////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -105,9 +108,22 @@ let clk = 2;
   //% block
   //% group="Sensore"
   export function Vandstandsmåler(): number {
-    let x = readData(water);
+    let x = readData(water, "a");
   return x ;
   }
+
+
+  /**
+  * Luftfugtighedsmåler
+  */
+  //% block
+  //% group="Sensore"
+  export function Luftfugtighedsmåler(): number {
+    let x = readData(hum, "a");
+  return x ;
+  }
+
+
 
   /**
   * CO2-Måler
@@ -118,7 +134,7 @@ let clk = 2;
     let coIn = serial.readString();
     let coOut = coIn.split('|');
     let coDisp = parseInt(coOut[1]);
-    if (coOut[0] == "a") {
+    if (coOut[0] == "b") {
       serial.writeString(coOut[1]);
     }
 
@@ -131,14 +147,10 @@ let clk = 2;
  //% block
  //% group="Sensore"
  export function tempSensor(): number {
-   let x = readData(temp);
+   let x = readData(temp, "b");
   return x ;
 }
 
-export function Luftfugtighedsmåler(): number {
-  let x = readData(hum);
-return x ;
-}
 
   /**
  * DoorSensor
@@ -146,7 +158,7 @@ return x ;
  //% block
  //% group="Sensore"
   export function doorSensor(): number {
-    let x = readData(door);
+    let x = readData(door,"c" );
   return x;
 }
 
@@ -156,7 +168,7 @@ return x ;
   //% block
   //% group="Sensore"
   export function clockSensor(): number {
-    let x = readData(clk);
+    let x = readData(clk, "c");
   return x;
 }
 
@@ -173,13 +185,13 @@ return x ;
     let lB = lightBrigt.toString();
     if (lightType == 1){
       let output = "a:" + lB + "|";
-      serial.writeLine(output);
+      serial.writeLine(output.toString());
     } else if (lightType == 2){
       let output = "b:" + lB + "|";
-      serial.writeLine(output);
+      serial.writeLine(output.toString());
     } else if (lightType == 3){
         let output = "c:" + lB + "|";
-        serial.writeLine(output);
+        serial.writeLine(output.toString());
     }
   }
 
