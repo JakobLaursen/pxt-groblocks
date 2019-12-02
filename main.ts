@@ -37,7 +37,10 @@ enum lightList {
 //% groups="['Aktuatore', Sensore']"
 namespace groblocks {
 
-// ############################# Init #########################
+// ############################# Init ########################################
+//=============================================================================
+//############################################################################
+
 function init(){
     basic.showString("OK")
     serial.redirect(
@@ -45,8 +48,7 @@ function init(){
     SerialPin.P1,
     BaudRate.BaudRate9600
     )
-
-}
+  }
 
 
 // actuCat index
@@ -83,35 +85,22 @@ function sendData(actuCat: number, actuType: number, actuSet: number){
 
 
 // #####################   SENSORS   #################################
+//=============================================================================
+//############################################################################
+
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door| clock
 //Indexing for readData
-//a 1 = gorID 2, = seq
-//let seq = 1;
-//a =0
+//A =0
 let hum = 1;
 let water = 2;
+
 //B 0
 //let co2 = 1;
 let temp = 2;
+
 //C 0
 let door = 1;
 let clk = 2;
-
-  /**
-  * Luftfugtighedsmåler 0-100
-  */
-  //% block
-  //% group="Sensore"
-
-  /**
-  * Vandstandsmåler 0-100
-  */
-  //% block
-  //% group="Sensore"
-  export function Vandstandsmåler(): number {
-    let x = readData(water, "a");
-  return x ;
-  }
 
 
   /**
@@ -124,7 +113,15 @@ let clk = 2;
   return x ;
   }
 
-
+  /**
+  * Vandstandsmåler 0-100
+  */
+  //% block
+  //% group="Sensore"
+  export function Vandstandsmåler(): number {
+    let x = readData(water, "a");
+  return x ;
+  }
 
   /**
   * CO2-Måler
@@ -164,7 +161,7 @@ let clk = 2;
 }
 
   /**
-  * Temperatursensor
+  * Klokken
   */
   //% block
   //% group="Sensore"
@@ -173,7 +170,10 @@ let clk = 2;
   return x;
 }
 
-// ########################  Actuators  ############################
+// ########################  Actuators  ######################################
+//=============================================================================
+//############################################################################
+
 //Indexing actuators
 
   /**
@@ -182,7 +182,6 @@ let clk = 2;
   //% blockId=mockUpLight block="%lightList, Brightness %brightness"
   //% group="Aktuatore"
   export function groLys(lightType: lightList, lightBrigt: number){
-    let lT = lightType.toString();
     let lB = lightBrigt.toString();
     if (lightType == 1){
       let output = "a:" + lB + "|";
