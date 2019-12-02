@@ -186,14 +186,17 @@ let clk = 2;
     if (lightType == 1){
       let output = "a:" + lB + "|";
       serial.writeString(output);
+      serial.writeString("x");
       serial.writeLine(" ");
     } else if (lightType == 2){
       let output = "b:" + lB + "|";
       serial.writeString(output);
+      serial.writeString("x");
       serial.writeLine(" ");
     } else if (lightType == 3){
         let output = "c:" + lB + "|";
         serial.writeString(output);
+        serial.writeString("x");
         serial.writeLine(" ");
     }
   }
