@@ -52,16 +52,16 @@ let lightCat: number = 0;
 let airCat: number = 1;
 let pumpCat: number = 2;
 
-enum airList {
-//function readData(index: number): number {
-//  let readIn = serial.readString();
-//  let readOut = readIn.split("|");
-//  let readDisp = readOut[index];
 
-//  serial.writeString(readDisp);
-//  basic.showString(readDisp);
-//  return parseInt(readDisp);
-//  }
+function readData(index: number): number {
+  let readIn = serial.readString();
+  let readOut = readIn.split("|");
+  let readDisp = readOut[index];
+
+  serial.writeString(readDisp);
+  basic.showString(readDisp);
+  return parseInt(readDisp);
+  }
 
 
 
