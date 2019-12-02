@@ -115,7 +115,7 @@ let clk = 2;
     if (coOut[0] == "a") {
       serial.writeString(coOut[1]);
     }
-    
+
     return coDisp;
   }
 
@@ -156,15 +156,6 @@ return x ;
 
 // ########################  Actuators  ############################
 //Indexing actuators
-let whiteLight = 1;
-let uvLight = 2;
-let irLight = 3;
-let waterPump = 4;
-let airationpump = 5;
-let fert1pump = 6;
-let fert2Pump = 7;
-let heater = 8;
-let fan = 9;
 
   /**
   * Mock-up Light block
@@ -198,20 +189,6 @@ let fan = 9;
   export function setPump(actu:pumpList, setting: number){
     sendData(pumpCat, actu, setting);
   }
-
-
-
-
-  /**
-  * Mock-up timer block
-  /
-  //% blockId=mockUpTimer block="fra klokken %fra| til klokken %til"
-export function setClock(clockFra: number, clcokTil: number){
-
-}
-
-
-
 
 
 
