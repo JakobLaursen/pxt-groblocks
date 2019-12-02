@@ -1,10 +1,5 @@
 
-// actuCat index
-let lightCat: number = 0;
-let airCat: number = 1;
-let pumpCat: number = 2;
 
-enum airList {
   //% block="Varmelegeme"
   heater,
   //% block="Blæser"
@@ -51,6 +46,13 @@ function init(){
 
 }
 
+
+// actuCat index
+let lightCat: number = 0;
+let airCat: number = 1;
+let pumpCat: number = 2;
+
+enum airList {
 //function readData(index: number): number {
 //  let readIn = serial.readString();
 //  let readOut = readIn.split("|");
@@ -109,11 +111,12 @@ let clk = 2;
   export function co2Sensor(): number {
     let coIn = serial.readString();
     let coOut = coIn.split('|');
-    if (coIn[0]=="a"){
-    let coDisp = parseInt(coOut[1]);
-    serial.writeString(coOut[1]);
-  return coDisp;
+    if (coIn[0] == "a") {
+      var coDisp = parseInt(coOut[1]);
+      serial.writeString(coOut[1]);
+
     }
+    return coDisp;
   }
 
   /**
