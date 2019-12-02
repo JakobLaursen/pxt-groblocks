@@ -118,7 +118,7 @@ let clk = 2;
       serial.writeString(coOut[1]);
     }
 
-    return;
+    return coDisp;
   }
 
   /**
