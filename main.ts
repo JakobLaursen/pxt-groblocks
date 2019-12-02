@@ -184,17 +184,14 @@ let clk = 2;
   export function groLys(lightType: lightList, lightBrigt: number){
     let lB = lightBrigt.toString();
     if (lightType == 1){
-      let output = "a:" + lB + "|";
+      let output = "a:" + lB + "|x";
       serial.writeString(output);
-      serial.writeString("x");
     } else if (lightType == 2){
-      let output = "b:" + lB + "|";
+      let output = "b:" + lB + "|x";
       serial.writeString(output);
-      serial.writeString("x");
     } else if (lightType == 3){
-        let output = "c:" + lB + "|";
+        let output = "c:" + lB + "|x";
         serial.writeString(output);
-        serial.writeString("x");
     } else {
       serial.writeString("Light error");
     }
