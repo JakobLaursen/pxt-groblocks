@@ -111,13 +111,11 @@ let clk = 2;
   export function co2Sensor(): number {
     let coIn = serial.readString();
     let coOut = coIn.split('|');
+    var coDisp = parseInt(coOut[1]);
     if (coOut[0] == "a") {
-      var coDisp = parseInt(coOut[1]);
       serial.writeString(coOut[1]);
-    } else {
-      var coDisp; = 0;
     }
-
+    
     return coDisp;
   }
 
