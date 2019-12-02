@@ -64,8 +64,9 @@ function readData(index: number, listABC: String): number {
   let readDisp = readOut[index];
   if (readOut[0] == listABC){
     return readDisp[index];
+  }else {
+    return 0;
   }
-
 }
 
 
