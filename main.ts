@@ -167,9 +167,19 @@ return x ;
   export function groLys(lightType: lightList, lightBrigt: number){
     let lT = lightType.toString();
     let lB = lightBrigt.toString();
-    let output = "Light" + lT + lB;
-    serial.writeString(output);
+    if (lightType == 1){
+      let output = "a:" + lB
+      serial.writeString(output);
+    } else if (lightType == 2){
+      let output = "b:" + lB
+      serial.writeString(output);
+    } else if (lightType == 3){
+        let output = "c:" + lB
+        serial.writeString(output);
+    }
   }
+    
+
 
 
 
