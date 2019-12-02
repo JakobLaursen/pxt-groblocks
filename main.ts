@@ -1,5 +1,7 @@
 
 
+
+enum airList {
   //% block="Varmelegeme"
   heater,
   //% block="Blæser"
