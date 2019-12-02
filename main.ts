@@ -192,11 +192,8 @@ let clk = 2;
     } else if (lightType == 3){
         let output = "c:" + lB + "|x";
         serial.writeString(output);
-    } else {
-      serial.writeString("Light error");
-    }
   }
-
+}
 
 
 
