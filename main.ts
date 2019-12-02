@@ -63,8 +63,9 @@ function readData(index: number, listABC: String): number {
   if (readOut[0] == listABC){
   serial.writeString(readDisp);
   basic.showString(readDisp);
-  return parseInt(readDisp);
+
   }
+  return parseInt(readDisp);
 }
 
 
@@ -185,13 +186,16 @@ let clk = 2;
     let lB = lightBrigt.toString();
     if (lightType == 1){
       let output = "a:" + lB + "|";
-      serial.writeLine(output.toString());
+      serial.writeString(output);
+      serial.writeLine(" ");
     } else if (lightType == 2){
       let output = "b:" + lB + "|";
-      serial.writeLine(output.toString());
+      serial.writeString(output);
+      serial.writeLine(" ");
     } else if (lightType == 3){
         let output = "c:" + lB + "|";
-        serial.writeLine(output.toString());
+        serial.writeString(output);
+        serial.writeLine(" ");
     }
   }
 
