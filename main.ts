@@ -59,11 +59,15 @@ function readData(index: number): number {
   let readIn = serial.readString();
   let readOut = readIn.split("|");
   let readDisp = readOut[index];
-
   serial.writeString(readDisp);
   basic.showString(readDisp);
     return parseInt(readDisp);
   }
+
+
+
+
+
 
 
 
@@ -168,17 +172,17 @@ return x ;
     let lT = lightType.toString();
     let lB = lightBrigt.toString();
     if (lightType == 1){
-      let output = "a:" + lB
+      let output = "a:" + lB + "|";
       serial.writeString(output);
     } else if (lightType == 2){
-      let output = "b:" + lB
+      let output = "b:" + lB + "|";
       serial.writeString(output);
     } else if (lightType == 3){
-        let output = "c:" + lB
+        let output = "c:" + lB + "|";
         serial.writeString(output);
     }
   }
-    
+
 
 
 
