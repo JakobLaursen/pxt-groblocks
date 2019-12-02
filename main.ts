@@ -173,13 +173,13 @@ return x ;
     let lB = lightBrigt.toString();
     if (lightType == 1){
       let output = "a:" + lB + "|";
-      serial.writeString(output);
+      serial.writeLine(output);
     } else if (lightType == 2){
       let output = "b:" + lB + "|";
-      serial.writeString(output);
+      serial.writeLine(output);
     } else if (lightType == 3){
         let output = "c:" + lB + "|";
-        serial.writeString(output);
+        serial.writeLine(output);
     }
   }
 
