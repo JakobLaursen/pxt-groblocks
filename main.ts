@@ -1,31 +1,8 @@
 
-/*
-Sensors		         Actuators
-Clock		           Controlled fan
-Humidity		       IR Grow
-Moisture		       UV Grow
-Co2	               5 pumps
-
-Sequence #
-*/
-
-
-/* Doesn't work, since maakecode wont allow getlenght
-let text = ""
-let restArg: number[]
-function sendData(actuType: number, ...restArg: number[]){
-  for (let i = 0; i < restArg.length; i++) {
-
-    text += ", ";
-    text += restArg[i].toString();
-
-  }
-  let output = actuType.toString() + "; " + text;
-  serial.writeString(output);
-
-}
-*/
-
+// actuCat index
+let lightCat: number = 0;
+let airCat: number = 1;
+let pumpCat: number = 2;
 
 enum airList {
   //% block="Varmelegeme"
@@ -74,27 +51,17 @@ function init(){
 
 }
 
-//ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door|;
+//function readData(index: number): number {
+//  let readIn = serial.readString();
+//  let readOut = readIn.split("|");
+//  let readDisp = readOut[index];
+
+//  serial.writeString(readDisp);
+//  basic.showString(readDisp);
+//  return parseInt(readDisp);
+//  }
 
 
-function readData(index: number): number {
-  let readIn = serial.readString();
-  let readOut = readIn.split("|");
-  let readDisp = readOut[index];
-
-  serial.writeString(readDisp);
-  basic.showString(readDisp);
-  return parseInt(readDisp);
-  }
-
-//Indexing for readData
-//let seq = 1;
-let hum = 2;
-let water = 3;
-//let co2 = 4;
-let temp = 5
-let door = 6;
-let clk = 7;
 
 function sendData(actuCat: number, actuType: number, actuSet: number){
   let output = actuCat.toString() + ";" + actuType.toString() + "," + actuSet.toString();
@@ -102,17 +69,21 @@ function sendData(actuCat: number, actuType: number, actuSet: number){
 
 }
 
-// actuCat index
-let lightCat: number = 0;
-let airCat: number = 1;
-let pumpCat: number = 2;
-
-
-
 
 // #####################   SENSORS   #################################
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door| clock
-
+//Indexing for readData
+//a 1 = gorID 2, = seq
+//let seq = 1;
+//a =0
+let hum = 1;
+let water = 2;
+//B 0
+//let co2 = 1;
+let temp = 2;
+//C 0
+let door = 1;
+let clk = 2;
 
   /**
   * Luftfugtighedsmåler 0-100
@@ -138,9 +109,11 @@ let pumpCat: number = 2;
   export function co2Sensor(): number {
     let coIn = serial.readString();
     let coOut = coIn.split('|');
-    let coDisp = parseInt(coOut[4]);
-    serial.writeString(coOut[4]);
+    if (coIn[0]=="a"){
+    let coDisp = parseInt(coOut[1]);
+    serial.writeString(coOut[1]);
   return coDisp;
+    }
   }
 
   /**
@@ -179,6 +152,16 @@ return x ;
 }
 
 // ########################  Actuators  ############################
+//Indexing actuators
+let whiteLight = 1;
+let uvLight = 2;
+let irLight = 3;
+let waterPump = 4;
+let airationpump = 5;
+let fert1pump = 6;
+let fert2Pump = 7;
+let heater = 8;
+let fan = 9;
 
   /**
   * Mock-up Light block
