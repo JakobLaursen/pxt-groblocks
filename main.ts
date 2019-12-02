@@ -62,7 +62,7 @@ function readData(index: number): number {
 
   serial.writeString(readDisp);
   basic.showString(readDisp);
-  return parseInt(readDisp);
+    return parseInt(readDisp);
   }
 
 
@@ -113,12 +113,12 @@ let clk = 2;
   export function co2Sensor(): number {
     let coIn = serial.readString();
     let coOut = coIn.split('|');
-    var coDisp = parseInt(coOut[1]);
+    let coDisp = parseInt(coOut[1]);
     if (coOut[0] == "a") {
       serial.writeString(coOut[1]);
     }
 
-    return coDisp;
+    return;
   }
 
   /**
