@@ -63,11 +63,9 @@ function readData(index: number, listABC: String): number {
   let readOut = readIn.split("|");
   let readDisp = readOut[index];
   if (readOut[0] == listABC){
-  serial.writeString(readDisp);
-  basic.showString(readDisp);
-
+    return readDisp[index];
   }
-  return parseInt(readDisp);
+
 }
 
 
@@ -175,6 +173,17 @@ let clk = 2;
 //############################################################################
 
 //Indexing actuators
+/*A,white,
+b,uv,
+c,ir
+d,fert
+e,water
+f,air
+g,changeAIR
+h,heater
+i,fan
+j,time
+*/
 
   /**
   * Mock-up Light block
