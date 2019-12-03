@@ -57,16 +57,51 @@ let airCat: number = 1;
 let pumpCat: number = 2;
 
 
-function readData(index: number, listABC: String): number {
+function readData(index: number, listABC: string): number {
   let readIn = serial.readString();
   let readOut = readIn.split("|");
   let readDisp = readOut[index];
-  if (readOut[0] == listABC){
-      return parseInt(readDisp);
-    }else{
-      return 0;
+  while (readOut[0] != listABC){
+      basic.pause(10);
+      readIn;
+    }
+  return parseInt(readDisp);
     }
   }
+
+
+
+export function longString():string {
+  let readIn = serial.readString();
+  let readOut = readIn.split("|");
+  let longboi: string
+
+  while (longboi.search("a" && "b" && "c") == -1){
+
+    if ((longboi.search("a") == -1) && readOut[0] == "a"){
+        longboi += readOut;
+        }
+
+    else if (longboi.search("b") == -1 && readOut[0] == "b"){
+        longboi += readOut;
+        }
+
+    else if (longboi.search("c") == -1 && readOut[0] == "c" ){
+        longboi += readOut;
+        }
+  } while (longboi.search("a" && "b" && "c") != -1){
+    basic.showString(longboi);
+    return longboi;
+
+  }
+}
+
+
+
+
+
+
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 
