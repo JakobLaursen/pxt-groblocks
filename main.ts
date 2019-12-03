@@ -62,12 +62,10 @@ function readData(index: number, listABC: String): number {
   let readIn = serial.readString();
   let readOut = readIn.split("|");
   let readDisp = readOut[index];
-  basic.showString(readOut[0]);
   if (readOut[0] == listABC){
-    basic.showString("inde")
     return parseInt(readDisp);
   }else{
-    return 0;
+    return NaN;
   }
 }
 
