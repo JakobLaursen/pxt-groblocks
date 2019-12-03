@@ -61,8 +61,8 @@ function readData(index: number, listABC: String): number {
   let readIn = serial.readString();
   let readOut = readIn.split("|");
   let readDisp = readOut[index];
-  while (readOut[0] !== listABC){
-    basic.pause(100)
+  while (readOut[0] != listABC){
+    basic.pause(10)
       }
   return parseInt(readDisp);
   }
