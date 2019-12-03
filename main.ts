@@ -61,47 +61,11 @@ function readData(index: number, listABC: string): number {
   let readIn = serial.readString();
   let readOut = readIn.split("|");
   let readDisp = readOut[index];
-  while (readOut[0] != listABC){
-      basic.pause(10);
-      readIn;
-    }
-  return parseInt(readDisp);
-    }
+  if (readOut[0] != listABC){
+    parseInt(readDisp);
+  } else {
+    return 0;
   }
-
-
-
-export function longString():string {
-  let readIn = serial.readString();
-  let readOut = readIn.split("|");
-  let longboi: string
-
-  while (longboi.search("a" && "b" && "c") == -1){
-
-    if ((longboi.search("a") == -1) && readOut[0] == "a"){
-        longboi += readOut;
-        }
-
-    else if (longboi.search("b") == -1 && readOut[0] == "b"){
-        longboi += readOut;
-        }
-
-    else if (longboi.search("c") == -1 && readOut[0] == "c" ){
-        longboi += readOut;
-        }
-  } while (longboi.search("a" && "b" && "c") != -1){
-    basic.showString(longboi);
-    return longboi;
-
-  }
-}
-
-
-
-
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -247,8 +211,19 @@ j,time
   //% blockId=mockUpActuator block="%actuList| intensitet %randNum"
   //% group="Aktuatore"
   export function setActuator(actu:airList, setting: number){
-    sendData(airCat, actu, setting);
+    let set = setting.toString();
+    if (actu == 0){
+      let output = "h:" + set + "|x";
+      serial.writeString(output);
+    }
+   else if (actu == 1){
+      let output = "i:" + set + "|x";
+      serial.writeString(output);
+    }
   }
+
+
+
 
 
   /**
@@ -257,7 +232,22 @@ j,time
   //% blockId=mockUpActuator block="%actuList| intensitet %randNum"
   //% group="Aktuatore"
   export function setPump(actu:pumpList, setting: number){
-    sendData(pumpCat, actu, setting);
+    let set = setting.toString();
+    if (actu == 0){
+      let output = "e:" + set + "|x";
+      serial.writeString(output);
+    }
+   else if (actu == 1){
+      let output = "f:" + set + "|x";
+      serial.writeString(output);
+    }
+    else if (actu == 1){
+       let output = "d:" + set + "|x";
+       serial.writeString(output);
+     }
+  }
+
+
   }
 
 
@@ -276,5 +266,4 @@ j,time
 
 init();
 
-
-}
+} }
