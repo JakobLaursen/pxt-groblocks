@@ -65,7 +65,7 @@ function readData(index: number, listABC: String): number {
   if (readOut[0] == listABC){
     return parseInt(readDisp);
   }else{
-    return NaN;
+    return readData(index,listABC); // https://gph.is/2AmePHo
   }
 }
 
