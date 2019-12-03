@@ -57,16 +57,15 @@ let airCat: number = 1;
 let pumpCat: number = 2;
 
 
-//"|100|999|25|23232|"
 function readData(index: number, listABC: String): number {
   let readIn = serial.readString();
   let readOut = readIn.split("|");
   let readDisp = readOut[index];
-  if (readOut[0] == listABC){
-    return parseInt(readDisp);
+  while (readOut[0] !== listABC){
+    basic.pause(100)
+      }
+  return parseInt(readDisp);
   }
-}
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 
