@@ -42,12 +42,13 @@ namespace groblocks {
 //############################################################################
 
 function init(){
-    basic.showString("OK")
     serial.redirect(
     SerialPin.P0,
     SerialPin.P1,
     BaudRate.BaudRate9600
-    )
+  );
+  pins.digitalWritePin(DigitalPin.P2, 1);
+  basic.showString("OK");
   }
 
 
