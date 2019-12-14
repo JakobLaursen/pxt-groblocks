@@ -207,9 +207,9 @@ j,time
 
 
   /**
-  * Aktuatore der håndterer luften i grobotten. Varmelegemet styrer temperaturen osv.
+  * Varmeboi.
   */
-  //% blockId=mockUpActuator block="%actuList| intensitet %randNum"
+  //% blockId=airActu block="%actuList| intensitet %randNum"
   //% group="Aktuatore"
   export function setActuator(actu:airList, setting: number){
     let set = setting.toString();
@@ -230,7 +230,7 @@ j,time
   /**
   *Pumper.
   */
-  //% blockId=mockUpActuator block="%actuList| intensitet %randNum"
+  //% blockId=pumpeActu block="%actuList| intensitet %randNum"
   //% group="Aktuatore"
   export function setPump(actu:pumpList, setting: number){
     let set = setting.toString();
