@@ -67,7 +67,7 @@ function readData(index: number, listABC: string): number {
   } else {
     return 0;
   }
-
+}
 ///////////////////////////////////////////////////////////////////////////////////
 
 
@@ -249,7 +249,7 @@ j,time
   }
 
 
-  }
+
 
 
 
@@ -267,4 +267,4 @@ j,time
 
 init();
 
-} 
+}
