@@ -63,7 +63,7 @@ function readData(index: number, listABC: string): number {
   let readOut = readIn.split("|");
   let readDisp = readOut[index];
   if (readOut[0] != listABC){
-    parseInt(readDisp);
+    return parseInt(readDisp);
   } else {
     return 0;
   }
