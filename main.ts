@@ -228,7 +228,7 @@ j,time
 
 
   /**
-  * Aktuatore der håndterer luften i grobotten. Varmelegemet styrer temperaturen osv.
+  *Pumper.
   */
   //% blockId=mockUpActuator block="%actuList| intensitet %randNum"
   //% group="Aktuatore"
