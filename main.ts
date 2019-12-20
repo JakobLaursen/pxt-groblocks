@@ -73,7 +73,7 @@ function readData(index: number, listABC: string): number {
 let bufboi = [0,0,0,0,0];
 
 function updateBuffer (){
-  let updated = [0,0,0];
+  let updated = [0,1,1];
   while(updated !=[1,1,1]){
 
   let dataString = serial.readString().split("|")
@@ -82,14 +82,14 @@ function updateBuffer (){
     bufboi[0] = parseInt(dataString[1]);
     bufboi[1] = parseInt(dataString[2]);
     updated[0]=1
-  } else if (dataString[0] == "b") {
-    bufboi[2] = parseInt(dataString[1]);
-    bufboi[3] = parseInt(dataString[2]);
-    updated[1]=1
-  } else if (dataString[0] == "c") {
-    bufboi[4] = parseInt(dataString[1]);
-    bufboi[5] = parseInt(dataString[2]);
-    updated[2]=1
+  //} else if (dataString[0] == "b") {
+  //  bufboi[2] = parseInt(dataString[1]);
+  //  bufboi[3] = parseInt(dataString[2]);
+  //  updated[1]=1
+  //} else if (dataString[0] == "c") {
+  //  bufboi[4] = parseInt(dataString[1]);
+  //  bufboi[5] = parseInt(dataString[2]);
+  //  updated[2]=1
   }
 }
 return;
