@@ -69,9 +69,32 @@ function readData(index: number, listABC: string): number {
   }
 }
 ///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////BUFFER/////////////////////
+let bufboi = [];
 
+function updateBuffer (){
+  let updated = [0,0,0];
+  while(updated !=[1,1,1]){
 
+  let dataString = serial.readString().split("|")
 
+  if (dataString[0] == "a") {
+    bufboi[0] = parseInt(dataString[1]);
+    bufboi[1] = parseInt(dataString[2]);
+    updated[0]=1
+  } else if (dataString[0] == "b") {
+    bufboi[2] = parseInt(dataString[1]);
+    bufboi[3] = parseInt(dataString[2]);
+    updated[1]=1
+  } else if (dataString[0] == "c") {
+    bufboi[4] = parseInt(dataString[1]);
+    bufboi[5] = parseInt(dataString[2]);
+    updated[2]=1
+  }
+}
+return;
+}
+/////////////////////////////////Buffer"////////////////////////////
 
 
 function sendData(actuCat: number, actuType: number, actuSet: number){
@@ -87,6 +110,9 @@ function sendData(actuCat: number, actuType: number, actuSet: number){
 
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door| clock
 //Indexing for readData
+
+
+
 //A =0
 let hum = 1;
 let water = 2;
@@ -105,6 +131,14 @@ let clk = 2;
   */
   //% block
   //% group="Sensore"
+
+  export function testSensor(): number {
+    updateBuffer();
+  return bufboi[0];
+  }
+
+
+
   export function Luftfugtighedsmåler(): number {
     let x = readData(hum, "a");
   return x ;
