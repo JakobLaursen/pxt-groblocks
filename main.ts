@@ -101,7 +101,7 @@ return;
 function sendData(actuCat: number, actuType: number, actuSet: number){
   let output = actuCat.toString() + ";" + actuType.toString() + "," + actuSet.toString();
   serial.writeString(output);
-
+  basic.pause(100);
 }
 
 
