@@ -70,9 +70,9 @@ function readData(index: number, listABC: string): number {
 }
 ///////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////BUFFER/////////////////////
-//let bufboi = [0,0,0];
+  let bufboi = [0,0,0];
 
-/*function updateBuffer (){
+  function updateBuffer (){
   let updated = [0,1,1];
   while(updated !=[1,1,1]){
 
@@ -95,7 +95,7 @@ function readData(index: number, listABC: string): number {
 }
 return;
 }
-*/
+
 /////////////////////////////////Buffer////////////////////////////
 
 
@@ -128,17 +128,16 @@ let door = 1;
 let clk = 2;
 
 
+//% group="Sensore"
   /**
   * Luftfugtighedsmåler
   */
   //% block
-  //% group="Sensore"
-/*
   export function testSensor(): number {
     updateBuffer();
   return bufboi[0];
   }
-*/
+
 
 
   export function Luftfugtighedsmåler(): number {
