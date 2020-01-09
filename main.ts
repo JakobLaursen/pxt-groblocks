@@ -130,7 +130,7 @@ let clk = 2;
 
 //% group="Sensore"
   /**
-  * Luftfugtighedsmåler
+  * Test
   */
   //% block
   export function testSensor(): number {
@@ -139,7 +139,11 @@ let clk = 2;
   }
 
 
-
+  //% group="Sensore"
+    /**
+    * Luftfugtighedsmåler
+    */
+    //% block
   export function Luftfugtighedsmåler(): number {
     let x = readData(hum, "a");
   return x ;
