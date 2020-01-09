@@ -48,7 +48,7 @@ function init(){
     BaudRate.BaudRate9600
   );
   pins.digitalWritePin(DigitalPin.P2, 1);
-  basic.showString("OK");
+  basic.showString("K");
   }
 
 
