@@ -133,16 +133,6 @@ let door = 1;
 let clk = 2;
 
 
-//% group="Sensore"
-  /**
-  * Test
-  */
-  //% block
-  export function testSensor(): number {
-    updateBuffer();
-  return bufboi[0];
-  }
-
 
   //% group="Sensore"
     /**
