@@ -330,6 +330,9 @@ control.inBackground(function () {
       basic.pause(200);
     }
   }
+   while (true) {
   sensData();
+  basic.pause(5000);
+}
 
 })
