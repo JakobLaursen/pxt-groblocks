@@ -62,7 +62,7 @@ function readData(index: number, listABC: string): number {
   let readIn = serial.readString();
   let readOut = readIn.split("|");
   let readDisp = readOut[index];
-  if (readOut[0] = listABC){
+  if (readOut[0] == listABC){
     return parseInt(readDisp);
   } else {
     return 0;
