@@ -102,7 +102,6 @@ let bufboi = [0,0,0,0,0,0]; //buffboi int atm
 function sensData(){
   let readIn = serial.readString();
   let inSplit = readIn.split('|');
-  basic.pause(5000);
   if (inSplit[0] == "a") {
     bufboi[0] = parseInt(inSplit[1]);
     bufboi[1] = parseInt(inSplit[2]);
@@ -120,11 +119,11 @@ function sensData(){
     bufboi[5] = parseInt(inSplit[2]);
     basic.showString("C"); //Debugging ReadData with string on successful read
     basic.pause(200);
+    }
 }
 
-control.inBackground(function () {
-    sensData();
-})
+
+
 /////////////////////////////////Buffer////////////////////////////
 
 
