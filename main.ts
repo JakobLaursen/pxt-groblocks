@@ -311,7 +311,6 @@ control.inBackground(function () {
   function sensData(){
     let readIn = serial.readString();
     let inSplit = readIn.split('|');
-    basic.pause(5000);
     if (inSplit[0] == "a") {
       bufboi[0] = parseInt(inSplit[1]);
       bufboi[1] = parseInt(inSplit[2]);
@@ -331,4 +330,6 @@ control.inBackground(function () {
       basic.pause(200);
     }
   }
+  sensData();
+  
 })
