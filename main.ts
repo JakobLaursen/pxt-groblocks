@@ -71,32 +71,60 @@ function readData(index: number, listABC: string): number {
 }
 ///////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////BUFFER/////////////////////
-  let bufboi = [0,0,0];
 
-  function updateBuffer (){
-  let updated = [0,1,1];
-  while(updated !=[1,1,1]){
+/*
+function updateBuffer (){
+let updated = [0,1,1];
+while(updated !=[1,1,1]){
 
-  let importString = serial.readString();
-  let dataString = importString.split('|');
+let importString = serial.readString();
+let dataString = importString.split('|');
 
-  if (dataString[0] == "a") {
-    bufboi[0] = parseInt(dataString[1]);
-    bufboi[1] = parseInt(dataString[2]);
-    updated[0]=1
-  } else if (dataString[0] == "b") {
-    bufboi[2] = parseInt(dataString[1]);
-    bufboi[3] = parseInt(dataString[2]);
-    updated[1]=1
-  } else if (dataString[0] == "c") {
-    bufboi[4] = parseInt(dataString[1]);
-    bufboi[5] = parseInt(dataString[2]);
-    updated[2]=1
-  }
+if (dataString[0] == "a") {
+  bufboi[0] = parseInt(dataString[1]);
+  bufboi[1] = parseInt(dataString[2]);
+  updated[0]=1
+} else if (dataString[0] == "b") {
+  bufboi[2] = parseInt(dataString[1]);
+  bufboi[3] = parseInt(dataString[2]);
+  updated[1]=1
+} else if (dataString[0] == "c") {
+  bufboi[4] = parseInt(dataString[1]);
+  bufboi[5] = parseInt(dataString[2]);
+  updated[2]=1
+}
 }
 return;
 }
+*/
+/////////////////////////////////InBackGround///////////////////////
+let bufboi = [0,0,0,0,0,0]; //buffboi int atm
+function sensData(){
+  let readIn = serial.readString();
+  let inSplit = readIn.split('|');
+  basic.pause(5000);
+  if (inSplit[0] == "a") {
+    bufboi[0] = parseInt(inSplit[1]);
+    bufboi[1] = parseInt(inSplit[2]);
+    basic.showString("A"); //Debugging ReadData with string on successful read
+    basic.pause(200);
 
+  } else if (inSplit[0] == "b") {
+    bufboi[2] = parseInt(inSplit[1]);
+    bufboi[3] = parseInt(inSplit[2]);
+    basic.showString("B"); //Debugging ReadData with string on successful read
+    basic.pause(200);
+
+  } else if (inSplit[0] == "c") {
+    bufboi[4] = parseInt(inSplit[1]);
+    bufboi[5] = parseInt(inSplit[2]);
+    basic.showString("C"); //Debugging ReadData with string on successful read
+    basic.pause(200);
+}
+
+control.inBackground(function () {
+    sensData();
+})
 /////////////////////////////////Buffer////////////////////////////
 
 
@@ -193,7 +221,7 @@ let clk = 2;
  //% block
  //% group="Sensore"
   export function doorSensor(): number {
-    let x = readData(door,"c" );
+    let x = readData(door, "c");
   return x;
 }
 
