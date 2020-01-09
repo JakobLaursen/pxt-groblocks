@@ -307,7 +307,7 @@ let bufboi = [0, 0, 0, 0, 0, 0]; //buffboi int atm
 control.inBackground(function () {
 
 
-<<<<<<< HEAD
+
   function sensData(){
     let readIn = serial.readString();
     let inSplit = readIn.split('|');
@@ -331,30 +331,5 @@ control.inBackground(function () {
     }
   }
   sensData();
-  
-=======
-    function sensData() {
-        let readIn = serial.readString();
-        let inSplit = readIn.split('|');
-        basic.pause(5000);
-        if (inSplit[0] == "a") {
-            bufboi[0] = parseInt(inSplit[1]);
-            bufboi[1] = parseInt(inSplit[2]);
-            basic.showString("A"); //Debugging ReadData with string on successful read
-            basic.pause(200);
 
-        } else if (inSplit[0] == "b") {
-            bufboi[2] = parseInt(inSplit[1]);
-            bufboi[3] = parseInt(inSplit[2]);
-            basic.showString("B"); //Debugging ReadData with string on successful read
-            basic.pause(200);
-
-        } else if (inSplit[0] == "c") {
-            bufboi[4] = parseInt(inSplit[1]);
-            bufboi[5] = parseInt(inSplit[2]);
-            basic.showString("C"); //Debugging ReadData with string on successful read
-            basic.pause(200);
-        }
-    }
->>>>>>> 6c312bee501272f38247348155233aa85b5b0302
 })
