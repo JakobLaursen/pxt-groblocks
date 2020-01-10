@@ -46,7 +46,7 @@ function init(){
     BaudRate.BaudRate9600
   );
   pins.digitalWritePin(DigitalPin.P2, 1);
-  basic.showString("K");
+  basic.showString("OK");
   }
 
 
@@ -234,7 +234,7 @@ j,time
   /**
   *Display data buffer contents
   */
-  //% blockId=dispDataBuffer
+  //% block
   //% group="xDebug"
   export function dispDataBuffer(){
 
