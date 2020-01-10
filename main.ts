@@ -234,10 +234,10 @@ j,time
   /**
   * Læs Buffer
   */
-  //% blockId=ReadBuffer block=Index"
+  //% blockId=ReadBuffer block="Index %pos"
   //% group="xDebug"
-    export function readBufBoi(index: number) {
-      basic.showNumber(bufboi[index]);
+    export function readBufBoi(pos: number) {
+      basic.showNumber(bufboi[pos]);
     }
 
     /**
