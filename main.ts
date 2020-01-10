@@ -231,6 +231,51 @@ j,time
 
 
   //#########################    DEBUG FUNCTIONS    #########################
+  /**
+  *Display data buffer contents
+  */
+  //% blockId=dispDataBuffer
+  //% group="xDebug"
+  export function dispDataBuffer(){
+
+    basic.showString("S1");
+    basic.showString("H");
+    basic.pause(500);
+    basic.showNumber(bufboi[0]);
+    basic.pause(1000);
+
+    basic.showString("W");
+    basic.pause(500);
+    basic.showNumber(bufboi[1]);
+    basic.pause(1000);
+
+
+    basic.showString("S2");
+    basic.showString("C");
+    basic.pause(500);
+    basic.showNumber(bufboi[2]);
+    basic.pause(1000);
+
+
+    basic.showString("T");
+    basic.pause(500);
+    basic.showNumber(bufboi[3]);
+    basic.pause(1000);
+
+
+    basic.showString("S3");
+    basic.showString("D");
+    basic.pause(500);
+    basic.showNumber(bufboi[4]);
+    basic.pause(1000);
+
+
+    basic.showString("c");
+    basic.pause(500);
+    basic.showNumber(bufboi[4]);
+    basic.pause(1000);
+  }
+
     /**
       *
       */
@@ -279,14 +324,7 @@ j,time
     export function bb5():number {
       return bufboi[5];
     }
-    /**
-      *
-      */
-     //% block="6"
-     //% group="xDebug"
-    export function bb6():number {
-      return bufboi[6];
-    }
+
     /**
     * prints string on LEDS and on serial port
     * @param testString string
