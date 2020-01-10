@@ -237,25 +237,25 @@ j,time
   //% blockId=ReadBuffer block="Index %pos"
   //% group="xDebug"
     export function bb0():number {
-      return 0;
+      return bufboi[0];
     }
     export function bb1():number {
-      return 1;
+      return bufboi[1];
     }
     export function bb2():number {
-      return 2;
+      return bufboi[2];
     }
     export function bb3():number {
-      return 3;
+      return bufboi[3];
     }
     export function bb4():number {
-      return 4;
+      return bufboi[4];
     }
     export function bb5():number {
-      return 5;
+      return bufboi[5];
     }
     export function bb6():number {
-      return 6;
+      return bufboi[6];
     }
     /**
     * prints string on LEDS and on serial port
