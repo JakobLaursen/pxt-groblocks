@@ -234,11 +234,10 @@ j,time
   /**
   * Læs Buffer
   */
-  //% blockId=ReadBuffer block=Index, %index"
-  //% group="Debug"
+  //% blockId=ReadBuffer block=Index"
+  //% group="xDebug"
     export function readBufBoi(index: number) {
       basic.showNumber(bufboi[index]);
-
     }
 
     /**
@@ -247,7 +246,7 @@ j,time
     */
     //% weight=101 blockGap=8
     //% blockId=testSerialPrint block="Test Serial print: %testString"
-    //% group="Debug"
+    //% group="xDebug"
     export function testSerialPrint(testString: string) : void {
       basic.showString(testString);
       serial.writeString(testString);
