@@ -37,9 +37,7 @@ enum lightList {
 //% groups="['Aktuatore', Sensore']"
 namespace groblocks {
 
-// ############################# Init ########################################
-//=============================================================================
-//############################################################################
+  //#########################    INITILIZATION   #########################
 
 function init(){
     serial.redirect(
@@ -52,10 +50,7 @@ function init(){
   }
 
 
-// actuCat index
-let lightCat: number = 0;
-let airCat: number = 1;
-let pumpCat: number = 2;
+
 
 
 function readData(index: number, listABC: string): number {
@@ -69,70 +64,29 @@ function readData(index: number, listABC: string): number {
     return 0;
   }
 }
-///////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////BUFFER/////////////////////
-
 /*
-function updateBuffer (){
-let updated = [0,1,1];
-while(updated !=[1,1,1]){
-
-let importString = serial.readString();
-let dataString = importString.split('|');
-
-if (dataString[0] == "a") {
-  bufboi[0] = parseInt(dataString[1]);
-  bufboi[1] = parseInt(dataString[2]);
-  updated[0]=1
-} else if (dataString[0] == "b") {
-  bufboi[2] = parseInt(dataString[1]);
-  bufboi[3] = parseInt(dataString[2]);
-  updated[1]=1
-} else if (dataString[0] == "c") {
-  bufboi[4] = parseInt(dataString[1]);
-  bufboi[5] = parseInt(dataString[2]);
-  updated[2]=1
-}
-}
-return;
-}
-*/
-/////////////////////////////////InBackGround///////////////////////
-
-
-
-/////////////////////////////////Buffer////////////////////////////
-
-
 function sendData(actuCat: number, actuType: number, actuSet: number){
   let output = actuCat.toString() + ";" + actuType.toString() + "," + actuSet.toString();
   serial.writeString(output);
   basic.pause(100);
 }
+*/
+//#########################    END INITILIZATION   #########################
 
 
-// #####################   SENSORS   #################################
-//=============================================================================
-//############################################################################
+//#########################    SENSORS    #########################
 
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door| clock
 //Indexing for readData
-
-
-
 //A =0
 let hum = 1;
 let water = 2;
-
 //B 0
 //let co2 = 1;
 let temp = 2;
-
 //C 0
 let door = 1;
 let clk = 2;
-
-
 
   //% group="Sensore"
     /**
@@ -166,10 +120,8 @@ let clk = 2;
     if (coOut[0] == "b") {
       serial.writeString(coOut[1]);
     }
-
     return coDisp;
   }
-
   /**
  * Temperatursensor
  */
@@ -179,7 +131,6 @@ let clk = 2;
    let x = readData(temp, "b");
   return x ;
 }
-
 
   /**
  * DoorSensor
@@ -200,13 +151,11 @@ let clk = 2;
     let x = readData(clk, "c");
   return x;
 }
+//#########################    END SENSORS    #########################
 
-// ########################  Actuators  ######################################
-//=============================================================================
-//############################################################################
-
-//Indexing actuators
-/*A,white,
+//#########################    ACTUATORS    #########################
+/*Indexing actuators
+a,white,
 b,uv,
 c,ir
 d,fert
@@ -217,7 +166,10 @@ h,heater
 i,fan
 j,time
 */
-
+// actuCat index
+//let lightCat: number = 0;
+//let airCat: number = 1;
+//let pumpCat: number = 2;
   /**
   * Mock-up Light block
   */
@@ -238,8 +190,6 @@ j,time
 }
 
 
-
-
   /**
   * Varmeboi.
   */
@@ -256,10 +206,6 @@ j,time
       serial.writeString(output);
     }
   }
-
-
-
-
 
   /**
   *Pumper.
@@ -281,11 +227,19 @@ j,time
        serial.writeString(output);
      }
   }
+  //#########################    END ACTUATORS    #########################
 
 
+  //#########################    DEBUG FUNCTIONS    #########################
+  /**
+  * Læs Buffer
+  */
+  //% blockId=ReadBuffer block=Index, %index"
+  //% group="Debug"
+    export function readBufBoi(index: number) {
+      basic.showNumber(bufboi[index]);
 
-
-
+    }
 
     /**
     * prints string on LEDS and on serial port
@@ -293,20 +247,24 @@ j,time
     */
     //% weight=101 blockGap=8
     //% blockId=testSerialPrint block="Test Serial print: %testString"
+    //% group="Debug"
     export function testSerialPrint(testString: string) : void {
       basic.showString(testString);
       serial.writeString(testString);
     }
+  //#########################   END DEBUG FUNCTIONS    #########################
 
-
+//Calls the initilization function to run on startup
 init();
 
-}
+}//Ends namespce
+/////////////////////////////////     END OF GROBLOCKS NAMESPACE      /////////////////////////////////
+
 let bufboi = [0, 0, 0, 0, 0, 0]; //buffboi int atm
 
+/////////////////////////////////     START OF INBACKGROUND NAMESPACE      /////////////////////////////////
+
 control.inBackground(function () {
-
-
 
   function sensData(){
     let readIn = serial.readString();
@@ -334,7 +292,7 @@ control.inBackground(function () {
   }
    while (true) {
   sensData();
-  basic.pause(1000); 
+  basic.pause(1000);
 }
 
 })
