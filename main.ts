@@ -231,29 +231,59 @@ j,time
 
 
   //#########################    DEBUG FUNCTIONS    #########################
-  /**
-  * Læs Buffer
-  */
-  //% blockId=ReadBuffer block="Index %pos"
-  //% group="xDebug"
+    /**
+      *
+      */
+     //% block="0"
+     //% group="xDebug"
     export function bb0():number {
       return bufboi[0];
     }
+    /**
+      *
+      */
+     //% block="1"
+     //% group="xDebug"
     export function bb1():number {
       return bufboi[1];
     }
+    /**
+      *
+      */
+     //% block="2"
+     //% group="xDebug"
     export function bb2():number {
       return bufboi[2];
     }
+    /**
+      *
+      */
+     //% block="3"
+     //% group="xDebug"
     export function bb3():number {
       return bufboi[3];
     }
+    /**
+      *
+      */
+     //% block="4"
+     //% group="xDebug"
     export function bb4():number {
       return bufboi[4];
     }
+    /**
+      *
+      */
+     //% block="5"
+     //% group="xDebug"
     export function bb5():number {
       return bufboi[5];
     }
+    /**
+      *
+      */
+     //% block="6"
+     //% group="xDebug"
     export function bb6():number {
       return bufboi[6];
     }
