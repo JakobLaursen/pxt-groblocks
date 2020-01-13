@@ -367,7 +367,7 @@ control.inBackground(function () {
   }
    while (true) {
   sensData();
-  basic.pause(15);
+  basic.pause(100);
 }
 
 })
