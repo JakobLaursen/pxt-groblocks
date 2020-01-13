@@ -260,6 +260,7 @@ export function setPump(actu:pumpList, setting: number){
   //% block
   //% group="xDebug"
   export function runActuators(){
+    basic.showString("L");
     groLys(0,100);  //iterate lights. on 1 sec
     basic.pause(1000);
     groLys(0,0);
@@ -271,7 +272,7 @@ export function setPump(actu:pumpList, setting: number){
     groLys(2,0);
 
     basic.pause(1000);
-
+    basic.showString("P");
     setPump(0,100);
     setPump(1,100);
     setPump(2,100);
@@ -281,7 +282,7 @@ export function setPump(actu:pumpList, setting: number){
     setPump(1,0);
     setPump(2,0);
     setPump(3,0);
-
+    basic.showString("H");
     setHeat(0,100);
     setHeat(1,1);
     basic.pause(10000);
