@@ -264,7 +264,7 @@ export function setPump(actu:pumpList, setting: number){
     basic.pasue(1000);
     groLys(0,0);
     groLys(1,100);
-    basic.pasue(1000);
+    basic.pause(1000);
     groLys(1,0);
     groLys(2,100);
     basic.pasue(1000);
@@ -276,7 +276,7 @@ export function setPump(actu:pumpList, setting: number){
     setPump(1,100);
     setPump(2,100);
     setPump(3,100);
-    basic.delay(5000);
+    basic.pause(5000);
     setPump(0,0);
     setPump(1,0);
     setPump(2,0);
