@@ -346,20 +346,20 @@ control.inBackground(function () {
     let inSplit = readIn.split('|');
     if (inSplit[0] == "a") {
       basic.showString("A"); //Debugging ReadData with string on successful read
-      basic.pause(200);
+      basic.pause(15);
       bufboi[0] = parseInt(inSplit[1]);
       bufboi[1] = parseInt(inSplit[2]);
 
 
     } else if (inSplit[0] == "b") {
       basic.showString("B"); //Debugging ReadData with string on successful read
-      basic.pause(200);
+      basic.pause(100);
       bufboi[2] = parseInt(inSplit[1]);
       bufboi[3] = parseInt(inSplit[2]);
 
     } else if (inSplit[0] == "c") {
       basic.showString("C"); //Debugging ReadData with string on successful read
-      basic.pause(200);
+      basic.pause(15);
       //bufboi[4] = parseInt(inSplit[1]);
       //bufboi[5] = parseInt(inSplit[2]);
 
@@ -367,7 +367,7 @@ control.inBackground(function () {
   }
    while (true) {
   sensData();
-  basic.pause(1000);
+  basic.pause(20);
 }
 
 })
