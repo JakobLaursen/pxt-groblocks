@@ -157,10 +157,6 @@ h,heater
 i,fan
 j,time
 */
-// actuCat index
-//let lightCat: number = 0;
-//let airCat: number = 1;
-//let pumpCat: number = 2;
   /**
   * Mock-up Light block
   */
@@ -180,13 +176,38 @@ j,time
   }
 }
 
+/**
+*Pumper.
+*/
+//% blockId=pumpeActu block="%actuList| intensitet %randNum"
+//% group="Aktuatore"
+export function setPump(actu:pumpList, setting: number){
+  let set = setting.toString();
+  if (actu == 0){
+    let output = "d:" + set + "|x";
+    serial.writeString(output);
+  }
+ else if (actu == 1){
+    let output = "e:" + set + "|x";
+    serial.writeString(output);
+  }
+  else if (actu == 2){
+     let output = "f:" + set + "|x";
+     serial.writeString(output);
+   }
+ }
+ else if (actu == 2){
+    let output = "g:" + set + "|x";
+    serial.writeString(output);
+  }
+}
 
   /**
   * Varmeboi.
   */
   //% blockId=airActu block="%actuList| intensitet %randNum"
   //% group="Aktuatore"
-  export function setActuator(actu:airList, setting: number){
+  export function setHeat(actu:airList, setting: number){
     let set = setting.toString();
     if (actu == 0){
       let output = "h:" + set + "|x";
@@ -198,26 +219,7 @@ j,time
     }
   }
 
-  /**
-  *Pumper.
-  */
-  //% blockId=pumpeActu block="%actuList| intensitet %randNum"
-  //% group="Aktuatore"
-  export function setPump(actu:pumpList, setting: number){
-    let set = setting.toString();
-    if (actu == 0){
-      let output = "e:" + set + "|x";
-      serial.writeString(output);
-    }
-   else if (actu == 1){
-      let output = "f:" + set + "|x";
-      serial.writeString(output);
-    }
-    else if (actu == 1){
-       let output = "d:" + set + "|x";
-       serial.writeString(output);
-     }
-  }
+
   //#########################    END ACTUATORS    #########################
 
 
@@ -251,6 +253,41 @@ j,time
     basic.pause(1000);
   }
 
+  /**
+  * Varmeboi.
+  */
+  //% block
+  //% group="xDebug"
+  export function runActuators(){
+    grolys(0,100);  //iterate lights. on 1 sec
+    basic.pasue(1000);
+    grolys(0,0);
+    grolys(1,100);
+    basic.pasue(1000);
+    grolys(1,0);
+    grolys(2,100);
+    basic.pasue(1000);
+    grolys(2,0);
+
+    basic.pasue(1000);
+
+    setPump(0,100);
+    setPump(1,100);
+    setPump(2,100);
+    setPump(3,100);
+    basic.delay(5000);
+    setPump(0,0);
+    setPump(1,0);
+    setPump(2,0);
+    setPump(3,0);
+
+    setHeat(0,100);
+    setHeat(1,1);
+    basic.pause(10000);
+    setHeat(0,0);
+    setHeat(1,0);
+
+  }
     /**
       *
       */
