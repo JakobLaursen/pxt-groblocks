@@ -229,7 +229,7 @@ j,time
   //% group="xDebug"
   export function dispDataBuffer(){
 
-    basic.showString("S(A)");
+    basic.showString("A");
     //basic.showString("H");
     //basic.pause(500);
     basic.showNumber(bufboi[0]);
@@ -241,12 +241,11 @@ j,time
     basic.pause(1000);
 
 
-    basic.showString("S(B)");
+    basic.showString("B");
     //basic.showString("C");
     //basic.pause(500);
     basic.showNumber(bufboi[2]);
     basic.pause(1000);
-
 
     //basic.showString("T");
     //basic.pause(500);
@@ -254,16 +253,15 @@ j,time
     basic.pause(1000);
 
 
-    basic.showString("S(B)");
+    basic.showString("B");
     //basic.showString("D");
     //basic.pause(500);
     basic.showNumber(bufboi[4]);
     basic.pause(1000);
 
-
     //basic.showString("c");
     //basic.pause(500);
-    basic.showNumber(bufboi[4]);
+    basic.showNumber(bufboi[5]);
     basic.pause(1000);
   }
 
