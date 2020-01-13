@@ -229,38 +229,25 @@ j,time
   //% group="xDebug"
   export function dispDataBuffer(){
 
-    basic.showString("A");
+    basic.showString("A"); //First string from ardu
     basic.pause(1000);
-    basic.showNumber(bufboi[0]);
+    basic.showNumber(bufboi[0]); //Hum - Luftfugtighed
     basic.pause(1000);
-
-    //basic.showString("W");
-    //basic.pause(500);
-    basic.showNumber(bufboi[1]);
+    basic.showNumber(bufboi[1]); // Water level
     basic.pause(1000);
 
-
-    basic.showString("B");
-    //basic.showString("C");
+    basic.showString("B"); //Second string from ardu
     basic.pause(1000);
-    basic.showNumber(bufboi[2]);
+    basic.showNumber(bufboi[2]); //CO2
     basic.pause(1000);
-
-    //basic.showString("T");
-    basic.pause(1000);
-    basic.showNumber(bufboi[3]);
+    basic.showNumber(bufboi[3]); //Temp
     basic.pause(1000);
 
-
-    basic.showString("C");
-    //basic.showString("D");
+    basic.showString("C"); //Third string from ardu
     basic.pause(1000);
-    basic.showNumber(bufboi[4]);
+    basic.showNumber(bufboi[4]); //Door
     basic.pause(1000);
-
-    //basic.showString("c");
-    //basic.pause(500);
-    basic.showNumber(bufboi[5]);
+    basic.showNumber(bufboi[5]); //Clock
     basic.pause(1000);
   }
 
