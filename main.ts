@@ -195,12 +195,13 @@ export function setPump(actu:pumpList, setting: number){
      let output = "f:" + set + "|x";
      serial.writeString(output);
    }
+   else if (actu == 2) {
+      let output = "g:" + set + "|x";
+      serial.writeString(output);
+    }
  }
- else if (actu == 2){
-    let output = "g:" + set + "|x";
-    serial.writeString(output);
-  }
-}
+
+
 
   /**
   * Varmeboi.
@@ -286,7 +287,6 @@ export function setPump(actu:pumpList, setting: number){
     basic.pause(10000);
     setHeat(0,0);
     setHeat(1,0);
-
   }
     /**
       *
