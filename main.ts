@@ -353,7 +353,7 @@ control.inBackground(function () {
 
     } else if (inSplit[0] == "b") {
       basic.showString("B"); //Debugging ReadData with string on successful read
-      basic.pause(100);
+      basic.pause(15);
       bufboi[2] = parseInt(inSplit[1]);
       bufboi[3] = parseInt(inSplit[2]);
 
@@ -367,7 +367,7 @@ control.inBackground(function () {
   }
    while (true) {
   sensData();
-  basic.pause(20);
+  basic.pause(15);
 }
 
 })
