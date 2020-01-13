@@ -1,6 +1,3 @@
-
-
-
 enum airList {
   //% block="Varmelegeme"
   heater,
@@ -8,7 +5,6 @@ enum airList {
   fan
   //%block="Ventilation"
 }
-
 
 enum pumpList {
   //% block="Water circulation"
@@ -31,7 +27,6 @@ enum lightList {
     uvGrow,
 }
 
-
 // groblocks graphics
 //% weight=100 color=#0f9c11 icon="\f06c"
 //% groups="['Aktuatore', Sensore']"
@@ -48,10 +43,6 @@ function init(){
   pins.digitalWritePin(DigitalPin.P2, 1);
   basic.showString("OK");
   }
-
-
-
-
 
 function readData(index: number, listABC: string): number {
   let readIn = serial.readString();
@@ -369,8 +360,8 @@ control.inBackground(function () {
     } else if (inSplit[0] == "c") {
       basic.showString("C"); //Debugging ReadData with string on successful read
       basic.pause(200);
-      bufboi[4] = parseInt(inSplit[1]);
-      bufboi[5] = parseInt(inSplit[2]);
+      //bufboi[4] = parseInt(inSplit[1]);
+      //bufboi[5] = parseInt(inSplit[2]);
 
     }
   }
