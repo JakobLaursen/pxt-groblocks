@@ -229,40 +229,40 @@ j,time
   //% group="xDebug"
   export function dispDataBuffer(){
 
-    basic.showString("S1");
-    basic.showString("H");
-    basic.pause(500);
+    basic.showString("S(A)");
+    //basic.showString("H");
+    //basic.pause(500);
     basic.showNumber(bufboi[0]);
     basic.pause(1000);
 
-    basic.showString("W");
-    basic.pause(500);
+    //basic.showString("W");
+    //basic.pause(500);
     basic.showNumber(bufboi[1]);
     basic.pause(1000);
 
 
-    basic.showString("S2");
-    basic.showString("C");
-    basic.pause(500);
+    basic.showString("S(B)");
+    //basic.showString("C");
+    //basic.pause(500);
     basic.showNumber(bufboi[2]);
     basic.pause(1000);
 
 
-    basic.showString("T");
-    basic.pause(500);
+    //basic.showString("T");
+    //basic.pause(500);
     basic.showNumber(bufboi[3]);
     basic.pause(1000);
 
 
-    basic.showString("S3");
-    basic.showString("D");
-    basic.pause(500);
+    basic.showString("S(B)");
+    //basic.showString("D");
+    //basic.pause(500);
     basic.showNumber(bufboi[4]);
     basic.pause(1000);
 
 
-    basic.showString("c");
-    basic.pause(500);
+    //basic.showString("c");
+    //basic.pause(500);
     basic.showNumber(bufboi[4]);
     basic.pause(1000);
   }
@@ -360,8 +360,8 @@ control.inBackground(function () {
     } else if (inSplit[0] == "c") {
       //basic.showString("C"); //Debugging ReadData with string on successful read
       //basic.pause(15);
-      //bufboi[4] = parseInt(inSplit[1]);
-      //bufboi[5] = parseInt(inSplit[2]);
+      bufboi[4] = parseInt(inSplit[1]);
+      bufboi[5] = parseInt(inSplit[2]);
 
     }
   }
