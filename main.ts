@@ -72,10 +72,10 @@ function sendData(actuCat: number, actuType: number, actuSet: number){
 //A =0
 let hum = 1;
 let water = 2;
-//B 0
+//B 1
 //let co2 = 1;
 let temp = 2;
-//C 0
+//C 2
 let door = 1;
 let clk = 2;
 
@@ -230,8 +230,7 @@ j,time
   export function dispDataBuffer(){
 
     basic.showString("A");
-    //basic.showString("H");
-    //basic.pause(500);
+    basic.pause(1000);
     basic.showNumber(bufboi[0]);
     basic.pause(1000);
 
@@ -243,19 +242,19 @@ j,time
 
     basic.showString("B");
     //basic.showString("C");
-    //basic.pause(500);
+    basic.pause(1000);
     basic.showNumber(bufboi[2]);
     basic.pause(1000);
 
     //basic.showString("T");
-    //basic.pause(500);
+    basic.pause(1000);
     basic.showNumber(bufboi[3]);
     basic.pause(1000);
 
 
-    basic.showString("B");
+    basic.showString("C");
     //basic.showString("D");
-    //basic.pause(500);
+    basic.pause(1000);
     basic.showNumber(bufboi[4]);
     basic.pause(1000);
 
