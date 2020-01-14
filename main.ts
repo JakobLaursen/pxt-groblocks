@@ -255,30 +255,33 @@ export function setPump(actu:pumpList, setting: number){
   }
 
   /**
-  * Varmeboi.
+  * Runs all actuators as a test
   */
   //% block
   //% group="xDebug"
   export function runActuators(){
     //basic.showString("L");
-    groLys(0,100);  //iterate lights. on 1 sec
-    basic.pause(1000);
-    groLys(0,0);
-    groLys(1,100);
-    basic.pause(1000);
-    groLys(1,0);
-    groLys(2,100);
-    basic.pause(1000);
-    groLys(2,0);
+    //groLys(0,100);  //White light
+    //basic.pause(1000);
+    //groLys(0,0);
+    //groLys(1,100); //IR Light
+    //basic.pause(1000);
+    //groLys(1,0);
+    //groLys(2,100);  //UV Light
+    //basic.pause(1000);
+    //groLys(2,0);
 
     basic.pause(1000);
 
-    //basic.showString("P");
-    setPump(0,100);
-    setPump(1,100);
-    setPump(2,100);
-    setPump(3,100);
-    basic.pause(5000);
+    //basic.showString("P"); // Pumps not checked
+    setPump(0,100); //Water pump
+    basic.pause(1000);
+    setPump(1,100); //airationPump
+    basic.pause(1000);
+    setPump(2,100); //External pump 1
+    basic.pause(1000);
+    setPump(3,100); // External pump 2
+    basic.pause(1000);
     //setPump(0,0);
     //setPump(1,0);
     //setPump(2,0);
