@@ -28,7 +28,7 @@ enum lightList {
 }
 
 // groblocks graphics
-//% weight=100 color=#0f9c11 icon="\f06c"
+//% weight=100 color=#0f9c11 icon="\uf06c"
 //% groups="['Aktuatore', Sensore']"
 namespace groblocks {
 
