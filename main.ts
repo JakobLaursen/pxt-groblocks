@@ -55,6 +55,8 @@ function readData(index: number, listABC: string): number {
     return 0;
   }
 }
+
+
 /*
 function sendData(actuCat: number, actuType: number, actuSet: number){
   let output = actuCat.toString() + ";" + actuType.toString() + "," + actuSet.toString();
@@ -70,14 +72,14 @@ function sendData(actuCat: number, actuType: number, actuSet: number){
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door| clock
 //Indexing for readData
 //A =0
-let hum = 1;
-let water = 2;
+let hum = 0;
+let water = 1;
 //B 1
-//let co2 = 1;
-let temp = 2;
+let co2 = 2;
+let temp = 3;
 //C 2
-let door = 1;
-let clk = 2;
+let door = 4;
+let clk = 5;
 
   //% group="Sensore"
     /**
@@ -119,8 +121,7 @@ let clk = 2;
  //% block
  //% group="Sensore"
  export function tempSensor(): number {
-   let x = readData(temp, "b");
-  return x ;
+  return bufboi[temp];
 }
 
   /**
