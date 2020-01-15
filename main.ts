@@ -230,6 +230,7 @@ export function setPump(actu:pumpList, setting: number){
   */
   //% block
   //% group="xDebug"
+  //% advanced=true
   export function dispDataBuffer(){
 
     basic.showString("A"); //First string from ardu
@@ -259,6 +260,7 @@ export function setPump(actu:pumpList, setting: number){
   */
   //% block
   //% group="xDebug"
+  //% advanced=true
   export function runActuators(){
     //basic.showString("L");
     //groLys(0,100);  //White light
@@ -298,6 +300,7 @@ export function setPump(actu:pumpList, setting: number){
       */
      //% block="0"
      //% group="xDebug"
+     //% advanced=true
     export function bb0():number {
       return bufboi[0];
     }
@@ -306,6 +309,7 @@ export function setPump(actu:pumpList, setting: number){
       */
      //% block="1"
      //% group="xDebug"
+     //% advanced=true
     export function bb1():number {
       return bufboi[1];
     }
@@ -314,6 +318,7 @@ export function setPump(actu:pumpList, setting: number){
       */
      //% block="2"
      //% group="xDebug"
+     //% advanced=true
     export function bb2():number {
       return bufboi[2];
     }
@@ -322,6 +327,7 @@ export function setPump(actu:pumpList, setting: number){
       */
      //% block="3"
      //% group="xDebug"
+     //% advanced=true
     export function bb3():number {
       return bufboi[3];
     }
@@ -330,6 +336,7 @@ export function setPump(actu:pumpList, setting: number){
       */
      //% block="4"
      //% group="xDebug"
+     //% advanced=true
     export function bb4():number {
       return bufboi[4];
     }
@@ -338,6 +345,7 @@ export function setPump(actu:pumpList, setting: number){
       */
      //% block="5"
      //% group="xDebug"
+     //% advanced=true
     export function bb5():number {
       return bufboi[5];
     }
@@ -349,6 +357,7 @@ export function setPump(actu:pumpList, setting: number){
     //% weight=101 blockGap=8
     //% blockId=testSerialPrint block="Test Serial print: %testString"
     //% group="xDebug"
+    //% advanced=true
     export function testSerialPrint(testString: string) : void {
       basic.showString(testString);
       serial.writeString(testString);
