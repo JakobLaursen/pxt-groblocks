@@ -27,6 +27,7 @@ enum lightList {
     uvGrow,
 }
 
+let bufboi = [0, 0, 0, 0, 0, 0]; //buffboi int atm
 // groblocks graphics
 //% weight=100 color=#0f9c11 icon="\uf06c"
 //% groups="['Aktuatore', Sensore']"
@@ -44,17 +45,6 @@ function init(){
   basic.showString("OK");
   }
 
-function readData(index: number, listABC: string): number {
-  let readIn = serial.readString();
-  let readOut = readIn.split("|");
-  let readDisp = readOut[index];
-  if (readOut[0] == listABC){
-    basic.showString("X") //Debugging ReadData with string on successful read
-    return parseInt(readDisp);
-  } else {
-    return 0;
-  }
-}
 
 
 /*
@@ -71,13 +61,10 @@ function sendData(actuCat: number, actuType: number, actuSet: number){
 
 //ReceivedData:1|sequence|Humidity|Water_Level|CO2|Temp|Door| clock
 //Indexing for readData
-//A =0
 let hum = 0;
 let water = 1;
-//B 1
 let co2 = 2;
 let temp = 3;
-//C 2
 let door = 4;
 let clk = 5;
 
@@ -87,8 +74,7 @@ let clk = 5;
     */
     //% block
   export function Luftfugtighedsmåler(): number {
-    let x = readData(hum, "a");
-  return x ;
+    return bufboi[hum];
   }
 
   /**
@@ -97,8 +83,7 @@ let clk = 5;
   //% block
   //% group="Sensore"
   export function Vandstandsmåler(): number {
-    let x = readData(water, "a");
-  return x;
+    return bufboi[water];
   }
 
   /**
@@ -107,13 +92,7 @@ let clk = 5;
   //% block
   //% group="Sensore"
   export function co2Sensor(): number {
-    let coIn = serial.readString();
-    let coOut = coIn.split('|');
-    let coDisp = parseInt(coOut[1]);
-    if (coOut[0] == "b") {
-      serial.writeString(coOut[1]);
-    }
-    return coDisp;
+    return bufboi[co2];
   }
   /**
  * Temperatursensor
@@ -130,8 +109,7 @@ let clk = 5;
  //% block
  //% group="Sensore"
   export function doorSensor(): number {
-    let x = readData(door, "c");
-  return x;
+    return bufboi[door]
 }
 
   /**
@@ -140,8 +118,7 @@ let clk = 5;
   //% block
   //% group="Sensore"
   export function clockSensor(): number {
-    let x = readData(clk, "c");
-  return x;
+    return bufboi[clk];
 }
 //#########################    END SENSORS    #########################
 
@@ -371,7 +348,7 @@ init();
 }//Ends namespce
 /////////////////////////////////     END OF GROBLOCKS NAMESPACE      /////////////////////////////////
 
-let bufboi = [0, 0, 0, 0, 0, 0]; //buffboi int atm
+
 
 /////////////////////////////////     START OF INBACKGROUND NAMESPACE      /////////////////////////////////
 
