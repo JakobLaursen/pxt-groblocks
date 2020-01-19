@@ -240,16 +240,18 @@ export function setPump(actu:pumpList, setting: number){
   //% group="xDebug"
   //% advanced=true
   export function runActuators(){
-    //basic.showString("L");
-    //groLys(0,100);  //White light
-    //basic.pause(1000);
-    //groLys(0,0);
-    //groLys(1,100); //IR Light
-    //basic.pause(1000);
-    //groLys(1,0);
-    //groLys(2,100);  //UV Light
-    //basic.pause(1000);
-    //groLys(2,0);
+
+    groLys(0,100);  //White light
+    basic.pause(2000);
+    groLys(0,0);
+    basic.pause(200);
+    groLys(1,100); //IR Light
+    basic.pause(2000);
+    groLys(1,0);
+    basic.pause(200);
+    groLys(2,100);  //UV Light
+    basic.pause(2000);
+    groLys(2,0);
 
     basic.pause(1000);
 
@@ -267,9 +269,9 @@ export function setPump(actu:pumpList, setting: number){
     //setPump(2,0);
     //setPump(3,0);
     //basic.showString("H");
-    //setHeat(0,100);
-    //setHeat(1,1);
-    //basic.pause(10000);
+    setHeat(0,100);
+    setHeat(1,1);
+    basic.pause(10000);
     //setHeat(0,0);
     //setHeat(1,0);
   }
