@@ -265,12 +265,16 @@ export function setPump(actu:pumpList, setting: number){
     setPump(3,500); // External pump 2
     basic.pause(2000);
     setPump(0,0);
+    basic.pause(2000);
     setPump(1,0);
+    basic.pause(2000);
     setPump(2,0);
+    basic.pause(2000);
     setPump(3,0);
     //basic.showString("H");
     setHeat(0,100);
     basic.pause(2000);
+
     setHeat(0,0);
     basic.pause(1000);
     //setHeat(0,0);
