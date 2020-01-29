@@ -244,11 +244,11 @@ export function setPump(actu:pumpList, setting: number){
     groLys(0,100);  //White light
     basic.pause(2000);
     groLys(0,0);
-    basic.pause(200);
+    basic.pause(500);
     groLys(1,100); //IR Light
     basic.pause(2000);
     groLys(1,0);
-    basic.pause(200);
+    basic.pause(500);
     groLys(2,100);  //UV Light
     basic.pause(2000);
     groLys(2,0);
@@ -256,22 +256,23 @@ export function setPump(actu:pumpList, setting: number){
     basic.pause(1000);
 
     //basic.showString("P"); // Pumps not checked
-    setPump(0,100); //Water pump
-    basic.pause(1000);
-    setPump(1,100); //airationPump
-    basic.pause(1000);
-    setPump(2,100); //External pump 1
-    basic.pause(1000);
-    setPump(3,100); // External pump 2
-    basic.pause(1000);
-    //setPump(0,0);
-    //setPump(1,0);
-    //setPump(2,0);
-    //setPump(3,0);
+    setPump(0,500); //Water pump
+    basic.pause(2000);
+    setPump(1,500); //airationPump
+    basic.pause(2000);
+    setPump(2,500); //External pump 1
+    basic.pause(2000);
+    setPump(3,500); // External pump 2
+    basic.pause(2000);
+    setPump(0,0);
+    setPump(1,0);
+    setPump(2,0);
+    setPump(3,0);
     //basic.showString("H");
     setHeat(0,100);
-    setHeat(1,1);
-    basic.pause(10000);
+    basic.pause(2000);
+    setHeat(0,0);
+    basic.pause(1000);
     //setHeat(0,0);
     //setHeat(1,0);
   }
