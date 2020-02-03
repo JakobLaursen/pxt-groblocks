@@ -7,15 +7,14 @@ enum airList {
 }
 
 enum pumpList {
-  //% block="Water circulation"
-  waterPump,
   //% block="Airation"
   airationPump,
   //% block="External pump 1"
   fert1Pump,
   //% block="External pump 2"
   fert2Pump,
-  //% block="External pump 1"
+  //% block="Water circulation"
+  waterPump,
 }
 
 enum lightList {
