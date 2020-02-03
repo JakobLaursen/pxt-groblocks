@@ -172,7 +172,7 @@ export function setPump(actu:pumpList, setting: number){
      let output = "f:" + set + "|x";
      serial.writeString(output);
    }
-   else if (actu == 2) {
+   else if (actu == 3) {
       let output = "g:" + set + "|x";
       serial.writeString(output);
     }
