@@ -1,6 +1,6 @@
 {
     "name": "groblocks",
-    "version": "0.0.16",
+    "version": "0.0.17",
     "dependencies": {
         "core": "*"
     },
@@ -13,6 +13,6 @@
         "test.ts"
     ],
     "public": true,
-    "installedVersion": "workspace:323af379-d44a-4165-ef7c-531c93d92c47",
+    "installedVersion": "workspace:e8841446-c72d-47cd-8a2a-d22fc52b5b9a",
     "preferredEditor": "tsprj"
 }
