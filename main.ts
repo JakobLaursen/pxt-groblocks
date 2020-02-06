@@ -26,7 +26,7 @@ enum lightList {
     uvGrow,
 }
 
-let bufboi = [1, 1, 1, 1, 1, 1]; //buffboi int atm
+let bufboi = [0, 0, 0, 0, 0, 0]; //buffboi int atm
 // groblocks graphics
 //% weight=100 color=#0f9c11 icon="\uf06c"
 //% groups="['Aktuatore', Sensore']"
