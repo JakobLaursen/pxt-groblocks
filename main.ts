@@ -384,9 +384,9 @@ control.inBackground(function () {
 
     }
   }
-
+while(true){
   sensData();
-  basic.pause(1000);
-
+  basic.pause(500);
+}
 
 })
