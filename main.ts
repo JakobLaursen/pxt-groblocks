@@ -202,6 +202,8 @@ export function setPump(actu:pumpList, setting: number){
 
 
   //#########################    DEBUG FUNCTIONS    #########################
+let timeString = "N/A";
+
   /**
   *Display data buffer contents
   */
@@ -279,60 +281,22 @@ export function setPump(actu:pumpList, setting: number){
     //setHeat(0,0);
     //setHeat(1,0);
   }
-    /**
-      *
-      */
-     //% block="0"
-     //% group="xDebug"
-     //% advanced=true
-    export function bb0():number {
-      return bufboi[0];
+
+  /**
+  * Displays time as a string
+  */
+  //% block
+  //% group="xDebug"
+  //% advanced=true
+  export function timeAsString(){
+    let readIn = serial.readString();
+    let inSplit = readIn.split('|');
+    if (inSplit[0] == "c") {
+      timeString = inSplit[2];
     }
-    /**
-      *
-      */
-     //% block="1"
-     //% group="xDebug"
-     //% advanced=true
-    export function bb1():number {
-      return bufboi[1];
-    }
-    /**
-      *
-      */
-     //% block="2"
-     //% group="xDebug"
-     //% advanced=true
-    export function bb2():number {
-      return bufboi[2];
-    }
-    /**
-      *
-      */
-     //% block="3"
-     //% group="xDebug"
-     //% advanced=true
-    export function bb3():number {
-      return bufboi[3];
-    }
-    /**
-      *
-      */
-     //% block="4"
-     //% group="xDebug"
-     //% advanced=true
-    export function bb4():number {
-      return bufboi[4];
-    }
-    /**
-      *
-      */
-     //% block="5"
-     //% group="xDebug"
-     //% advanced=true
-    export function bb5():number {
-      return bufboi[5];
-    }
+    basic.showString(timeString);
+  }
+
 
     /**
     * prints string on LEDS and on serial port
