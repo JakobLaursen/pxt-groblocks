@@ -203,7 +203,16 @@ export function setPump(actu:pumpList, setting: number){
 
   //#########################    DEBUG FUNCTIONS    #########################
 let timeString = "N/A";
+let fakeTime = 0801;
+let fakeTimeString = "0801";
 
+  export function fakeTimeFunction(): number{
+    return fakeTime;
+  }
+
+  export function fakeTimeParsedAsInt(): number{
+    return parseInt(fakeTimeString);
+  }
   /**
   *Display data buffer contents
   */
