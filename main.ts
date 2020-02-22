@@ -18,11 +18,11 @@ enum pumpList {
 }
 
 enum lightList {
-    //% block="Hvidt Lys"
+    //% block="Hvidt lys"
     whiteGrow,
-    //% block="Infrarødt Lys"
+    //% block="Infrarødt lys"
     irGrow,
-    //% block="Ultraviolet Lys"
+    //% block="Ultraviolet lys"
     uvGrow,
 }
 
@@ -135,9 +135,9 @@ i,fan
 j,time
 */
   /**
-  * Mock-up Light block
+  * Angiv hvor intenst det almindelige lys skal lyse fra 0 til 100 procent
   */
-  //% blockId=mockUpLight block="%lightList, Brightness %brightness"
+  //% blockId=mockUpLight block="Sæt %lightList, med styrke %brightness 0-100"
   //% group="Aktuatore"
   export function groLys(lightType: lightList, lightBrigt: number){
     let lB = lightBrigt.toString();
