@@ -189,7 +189,7 @@ export function setPump(actu:pumpList, setting: number){
     let output = "i:" + set + "|x";
     serial.writeString(output);
     }
-  }
+  
 
 
 
