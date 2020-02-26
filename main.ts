@@ -117,9 +117,9 @@ i,fan
 j,time
 */
   /**
-  * Angiv hvor intenst det almindelige lys skal lyse fra 0 til 100 procent
+  * Angiv hvor intenst lyset skal være på en skala 0 til 100 procent
   */
-  //% blockId=mockUpLight block="Sæt %lightList, med styrke %brightness 0-100"
+  //% blockId=mockUpLight block="Sæt %lightList til intensitet %brightness"
   //% group="Aktuatorer"
   export function groLys(lightType: lightList, lightBrigt: number){
     let lB = lightBrigt.toString();
@@ -136,7 +136,7 @@ j,time
 }
 
 /**
-*Pumper.
+*Angiv hvor intenst pumpen skal køre fra 0 til 100 procent
 */
 //% blockId=pumpeActu block="Sæt %actuList til %randNum"
 //% group="Aktuatorer"
@@ -163,7 +163,7 @@ export function setPump(actu:pumpList, setting: number){
 
 
   /**
-  * Varmeboi.
+  * Angiv hvor intenst Varmelegemet skal køre fra 0 til 100 procent
   */
   //% blockId=airActu block="Sæt %actuList intensitet %randNum"
   //% group="Aktuatorer"
@@ -174,7 +174,7 @@ export function setPump(actu:pumpList, setting: number){
   }
 
   /**
-  * Varmeboi.
+  * Angiv hvor intenst Blæseren skal køre fra 0 til 100 procent
   */
   //% blockId=internalFan block="Sæt blæserens intensitet til %randNum"
   //% group="Aktuatorer"
@@ -183,10 +183,6 @@ export function setPump(actu:pumpList, setting: number){
     let output = "i:" + set + "|x";
     serial.writeString(output);
     }
-
-
-
-
   //#########################    END ACTUATORS    #########################
 
 
