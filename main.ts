@@ -28,7 +28,7 @@ enum lightList {
 let bufboi = [0, 0, 0, 0, 0, 0]; //buffboi int atm
 // groblocks graphics
 //% weight=100 color=#0f9c11 icon="\uf06c"
-//% groups="['Aktuatore', Sensore']"
+//% groups="['Aktuatorer', Sensorer']"
 namespace groblokke {
 
   //#########################    INITILIZATION   #########################
@@ -43,15 +43,6 @@ function init(){
   basic.showString("OK");
   }
 
-
-
-/*
-function sendData(actuCat: number, actuType: number, actuSet: number){
-  let output = actuCat.toString() + ";" + actuType.toString() + "," + actuSet.toString();
-  serial.writeString(output);
-  basic.pause(100);
-}
-*/
 //#########################    END INITILIZATION   #########################
 
 
@@ -71,7 +62,7 @@ let clk = 5;
     * Luftfugtighed
     */
     //% block
-  export function Luftfugtighedsmåler(): number {
+  export function Luftfugtighed(): number {
     return bufboi[hum];
   }
 
@@ -137,7 +128,7 @@ j,time
   * Angiv hvor intenst det almindelige lys skal lyse fra 0 til 100 procent
   */
   //% blockId=mockUpLight block="Sæt %lightList, med styrke %brightness 0-100"
-  //% group="Aktuatore"
+  //% group="Aktuatorer"
   export function groLys(lightType: lightList, lightBrigt: number){
     let lB = lightBrigt.toString();
     if (lightType == 0){
@@ -155,7 +146,7 @@ j,time
 /**
 *Pumper.
 */
-//% blockId=pumpeActu block="Sæt %actuList til %randNum 0-100"
+//% blockId=pumpeActu block="Sæt %actuList til %randNum"
 //% group="Aktuatorer"
 export function setPump(actu:pumpList, setting: number){
   let set = setting.toString();
@@ -182,8 +173,8 @@ export function setPump(actu:pumpList, setting: number){
   /**
   * Varmeboi.
   */
-  //% blockId=airActu block="%actuList| intensitet %randNum"
-  //% group="Aktuatore"
+  //% blockId=airActu block="Sæt %actuList intensitet %randNum"
+  //% group="Aktuatorer"
   export function setHeat(actu:airList, setting: number){
     let set = setting.toString();
     if (actu == 0){
