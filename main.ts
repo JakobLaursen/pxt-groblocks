@@ -1,19 +1,18 @@
 enum airList {
   //% block="Varmelegeme"
   heater,
-  //% block="Blæser"
+  //% block="Indre Blæser"
   fan
-  //%block="Ventilation"
 }
 
 enum pumpList {
-  //% block="Airation"
+  //% block="Luftudskiftning"
   airationPump,
-  //% block="External pump 1"
+  //% block="Ekstern pumpe 1"
   fert1Pump,
-  //% block="External pump 2"
+  //% block="Ekstern pumpe 2"
   fert2Pump,
-  //% block="Water circulation"
+  //% block="Luftsten"
   waterPump,
 }
 
@@ -30,7 +29,7 @@ let bufboi = [0, 0, 0, 0, 0, 0]; //buffboi int atm
 // groblocks graphics
 //% weight=100 color=#0f9c11 icon="\uf06c"
 //% groups="['Aktuatore', Sensore']"
-namespace groblocks {
+namespace groblokke {
 
   //#########################    INITILIZATION   #########################
 
@@ -67,9 +66,9 @@ let temp = 3;
 let door = 4;
 let clk = 5;
 
-  //% group="Sensore"
+  //% group="Sensorer"
     /**
-    * Luftfugtighedsmåler
+    * Luftfugtighed
     */
     //% block
   export function Luftfugtighedsmåler(): number {
@@ -80,7 +79,7 @@ let clk = 5;
   * Vandstandsmåler 0-100
   */
   //% block
-  //% group="Sensore"
+  //% group="Sensorer"
   export function Vandstandsmåler(): number {
     return bufboi[water];
   }
@@ -156,8 +155,8 @@ j,time
 /**
 *Pumper.
 */
-//% blockId=pumpeActu block="%actuList| intensitet %randNum"
-//% group="Aktuatore"
+//% blockId=pumpeActu block="Sæt %actuList til %randNum 0-100"
+//% group="Aktuatorer"
 export function setPump(actu:pumpList, setting: number){
   let set = setting.toString();
   if (actu == 0){
