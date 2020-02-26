@@ -52,14 +52,14 @@ function init(){
 //Indexing for readData
 let hum = 0;
 let water = 1;
-let co2 = 2;
+let CO2 = 2;
 let temp = 3;
 let door = 4;
 let clk = 5;
 
   //% group="Sensorer"
     /**
-    * Luftfugtighed
+    * Luftfugtighedsmåler 0-100 procent
     */
     //% block
   export function Luftfugtighed(): number {
@@ -67,46 +67,38 @@ let clk = 5;
   }
 
   /**
-  * Vandstandsmåler 0-100
+  * Vandstandsmåler
   */
   //% block
   //% group="Sensorer"
-  export function Vandstandsmåler(): number {
+  export function Vandstand(): number {
     return bufboi[water];
   }
 
   /**
-  * CO2-Måler
+  * CO2-Måler ppm
   */
   //% block
-  //% group="Sensore"
-  export function co2Sensor(): number {
-    return bufboi[co2];
+  //% group="Sensorer"
+  export function co2(): number {
+    return bufboi[CO2];
   }
   /**
  * Temperatursensor
  */
  //% block
- //% group="Sensore"
- export function tempSensor(): number {
+ //% group="Sensorer"
+ export function temperatur(): number {
   return bufboi[temp];
 }
 
-  /**
- * DoorSensor
- */
- //% block
- //% group="Sensore"
-  export function doorSensor(): number {
-    return bufboi[door]
-}
 
   /**
-  * Klokken
+  * Klokken i 24 timersformat. Blokken fjerner foranstillede nuller. Dvs klokken 0800 forstås 800. Der må kun være tal i Tidsblokken dvs ingen 21:00 osv.
   */
   //% block
-  //% group="Sensore"
-  export function clockSensor(): number {
+  //% group="Sensorer"
+  export function Tid(): number {
     return bufboi[clk];
 }
 //#########################    END SENSORS    #########################
@@ -186,6 +178,19 @@ export function setPump(actu:pumpList, setting: number){
       serial.writeString(output);
     }
   }
+
+  /**
+  * Varmeboi.
+  */
+  //% blockId=internalFan block="Sæt blæser intensitet til %randNum"
+  //% group="Aktuatorer"
+  export function fan(setting: number){
+    let set = setting.toString();
+    let output = "i:" + set + "|x";
+    serial.writeString(output);
+    }
+  }
+
 
 
   //#########################    END ACTUATORS    #########################
