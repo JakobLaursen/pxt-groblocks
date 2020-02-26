@@ -54,7 +54,7 @@ let hum = 0;
 let water = 1;
 let CO2 = 2;
 let temp = 3;
-let door = 4;
+//let door = 4;
 let clk = 5;
 
   //% group="Sensorer"
@@ -189,7 +189,7 @@ export function setPump(actu:pumpList, setting: number){
     let output = "i:" + set + "|x";
     serial.writeString(output);
     }
-  
+
 
 
 
