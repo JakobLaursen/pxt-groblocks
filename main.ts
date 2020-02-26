@@ -167,22 +167,16 @@ export function setPump(actu:pumpList, setting: number){
   */
   //% blockId=airActu block="Sæt %actuList intensitet %randNum"
   //% group="Aktuatorer"
-  export function setHeat(actu:airList, setting: number){
+  export function setHeat(setting: number){
     let set = setting.toString();
-    if (actu == 0){
       let output = "h:" + set + "|x";
       serial.writeString(output);
-    }
-   else if (actu == 1){
-      let output = "i:" + set + "|x";
-      serial.writeString(output);
-    }
   }
 
   /**
   * Varmeboi.
   */
-  //% blockId=internalFan block="Sæt blæser intensitet til %randNum"
+  //% blockId=internalFan block="Sæt blæserens intensitet til %randNum"
   //% group="Aktuatorer"
   export function fan(setting: number){
     let set = setting.toString();
