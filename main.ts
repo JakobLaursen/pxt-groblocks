@@ -278,10 +278,10 @@ let fakeTimeString = "0801";
     basic.pause(2000);
     setPump(3,0);
     //basic.showString("H");
-    setHeat(0,100);
+    setHeat(100);
     basic.pause(2000);
 
-    setHeat(0,0);
+    setHeat(0);
     basic.pause(1000);
     //setHeat(0,0);
     //setHeat(1,0);
