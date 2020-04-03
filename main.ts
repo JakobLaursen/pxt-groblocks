@@ -4,7 +4,7 @@ enum airList {
   //% block="Indre Blæser"
   fan
 }
-
+//TEEST GIT
 enum pumpList {
   //% block="Luftudskiftning"
   airationPump,
@@ -165,7 +165,7 @@ export function setPump(actu:pumpList, setting: number){
   /**
   * Angiv hvor intenst Varmelegemet skal køre fra 0 til 100 procent
   */
-  //% blockId=airActu block="Sæt %actuList intensitet %randNum"
+  //% blockId=airActu block="Sæt varmelegemets intensitet til %randNum"
   //% group="Aktuatorer"
   export function setHeat(setting: number){
     let set = setting.toString();
