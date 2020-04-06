@@ -138,7 +138,7 @@ j,time
 /**
 *Angiv hvor intenst pumpen skal køre fra 0 til 100 procent
 */
-//% blockId=pumpeActu block="Sæt %actuList til %randNum"
+//% blockId=pumpeActu block="Sæt %pumpList til %randNum"
 //% group="Aktuatorer"
 export function setPump(actu:pumpList, setting: number){
   let set = setting.toString();
