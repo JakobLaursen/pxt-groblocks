@@ -300,6 +300,7 @@ let fakeTimeString = "0801";
       timeString = inSplit[2];
     }
     basic.showString(timeString);
+    bufboi[5] = parseInt(inSplit[2]);
   }
 
 
@@ -348,7 +349,7 @@ control.inBackground(function () {
     } else if (inSplit[0] == "c") {
       //basic.showString("C"); //Debugging ReadData with string on successful read
       //basic.pause(15);
-      bufboi[4] = parseInt(inSplit[1]);
+      bufboi[4] = parseInt(inSplit[2]);
       bufboi[5] = parseInt(inSplit[2]);
 
     }
