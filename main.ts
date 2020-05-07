@@ -40,7 +40,7 @@ function init(){
     BaudRate.BaudRate9600
   );
   pins.digitalWritePin(DigitalPin.P2, 1);
-  basic.showString("v1.0 OK");
+  basic.showString("v1");
   }
 
 //#########################    END INITILIZATION   #########################
