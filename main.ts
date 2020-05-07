@@ -25,7 +25,7 @@ enum lightList {
     uvGrow,
 }
 
-let bufboi = [0, 0, 0, 0, 0, 0]; //buffboi int atm
+let bufboi = [0, 0, 0, 0, 0, 0, 0]; //buffboi int atm
 // groblocks graphics
 //% weight=100 color=#0f9c11 icon="\uf06c"
 //% groups="['Aktuatorer', Sensorer']"
@@ -40,7 +40,7 @@ function init(){
     BaudRate.BaudRate9600
   );
   pins.digitalWritePin(DigitalPin.P2, 1);
-  basic.showString("OK");
+  basic.showString("v1.0 OK");
   }
 
 //#########################    END INITILIZATION   #########################
@@ -98,7 +98,7 @@ let clk = 5;
   */
   //% block
   //% group="Sensorer"
-  export function Tid(): number {
+  export function tid(): number {
     return bufboi[clk];
 }
 //#########################    END SENSORS    #########################
