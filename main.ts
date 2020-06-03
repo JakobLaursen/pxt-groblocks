@@ -136,9 +136,9 @@ j,time
 }
 
 /**
-*Angiv hvor intenst pumpen skal køre fra 0 til 100 procent
+*Angiv hvor meget flow du ønsker i mililiter per time.
 */
-//% blockId=pumpeActu block="Sæt %pumpList til %randNum"
+//% blockId=pumpeActu block="Sæt %pumpList til %randNum mL/t"
 //% group="Aktuatorer"
 export function setPump(actu:pumpList, setting: number){
   let set = setting.toString();
@@ -164,6 +164,7 @@ export function setPump(actu:pumpList, setting: number){
 
   /**
   * Angiv den ønskede temperatur i vækstkammeret i celcius
+  * NB. Den indre blæser kører altid når varmelegemet er tændt
   */
   //% blockId=airActu block="Opvarm til %randNum °C"
   //% group="Aktuatorer"
@@ -175,10 +176,12 @@ export function setPump(actu:pumpList, setting: number){
   }
 
   /**
-  * Angiv hvor intenst Blæseren skal køre fra 0 til 100 procent
+  * Angiv om den indre blæser skal være tændt eller slukket. Værdien 0 er slukket
+  * mens 1 er tændt. NB. Blæseren kører altid når varmelegemet er tændt
   */
-  //% blockId=internalFan block="Sæt blæserens intensitet til %randNum"
+  //% blockId=internalFan block="Blæser Sluk/Tænd %randNum"
   //% group="Aktuatorer"
+  //% setting.min=0 setting.max=1
   export function fan(setting: number){
     let set = setting.toString();
     let output = "i:" + set + "|x";
