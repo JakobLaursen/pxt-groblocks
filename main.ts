@@ -163,10 +163,11 @@ export function setPump(actu:pumpList, setting: number){
 
 
   /**
-  * Angiv hvor intenst Varmelegemet skal køre fra 0 til 100 procent
+  * Angiv den ønskede temperatur i vækstkammeret i celcius
   */
-  //% blockId=airActu block="Sæt varmelegemets intensitet til %randNum"
+  //% blockId=airActu block="Opvarm til %randNum °C"
   //% group="Aktuatorer"
+  //% x.min=-100 x.max=100
   export function setHeat(setting: number){
     let set = setting.toString();
       let output = "h:" + set + "|x";
