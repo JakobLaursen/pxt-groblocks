@@ -167,7 +167,7 @@ export function setPump(actu:pumpList, setting: number){
   */
   //% blockId=airActu block="Opvarm til %randNum °C"
   //% group="Aktuatorer"
-  //% x.min=-100 x.max=100
+  //% randNum.min=0 randNum.max=40
   export function setHeat(setting: number){
     let set = setting.toString();
       let output = "h:" + set + "|x";
