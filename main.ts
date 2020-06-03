@@ -119,8 +119,9 @@ j,time
   /**
   * Angiv hvor intenst lyset skal være på en skala 0 til 100 procent
   */
-  //% blockId=mockUpLight block="Sæt %lightList til intensitet %brightness"
+  //% blockId=mockUpLight block="Lysstyrken for %lightList til %brightness"
   //% group="Aktuatorer"
+  //% lightBrigt.min=0 lightBrigt.max=100
   export function groLys(lightType: lightList, lightBrigt: number){
     let lB = lightBrigt.toString();
     if (lightType == 0){
