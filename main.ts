@@ -164,7 +164,7 @@ export function setPump(actu:pumpList, setting: number){
  /**
  *Angiv størrelsen på enkeltdosis i mL.
  */
- //% blockId=pumpeActu block="Dosér %randNum mL fra %pumpList"
+ //% blockId=pumpeburst block="Dosér %randNum mL fra %pumpList"
  //% group="Aktuatorer"
  export function burstPump(actu:pumpList, setting: number){
    let set = setting.toString();
