@@ -161,7 +161,30 @@ export function setPump(actu:pumpList, setting: number){
     }
  }
 
-
+ /**
+ *Angiv størrelsen på enkeltdosis i mL.
+ */
+ //% blockId=pumpeActu block="Dosér %randNum mL fra %pumpList"
+ //% group="Aktuatorer"
+ export function burstPump(actu:pumpList, setting: number){
+   let set = setting.toString();
+   if (actu == 0){
+     let output = "j:" + set + "|x";
+     serial.writeString(output);
+   }
+  else if (actu == 1){
+     let output = "k:" + set + "|x";
+     serial.writeString(output);
+   }
+   else if (actu == 2){
+      let output = "l:" + set + "|x";
+      serial.writeString(output);
+    }
+    else if (actu == 3) {
+       let output = "m:" + set + "|x";
+       serial.writeString(output);
+     }
+  }
 
   /**
   * Angiv den ønskede temperatur i vækstkammeret i celcius
