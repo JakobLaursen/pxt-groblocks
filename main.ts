@@ -162,7 +162,7 @@ export function setPump(actu:pumpList, setting: number){
  }
 
  /**
- *Angiv størrelsen på enkeltdosis i mL.
+ *Angiv størrelsen på enkeltdosis i mL.ss
  */
  //% blockId=pumpeburst block="Dosér %randNum mL fra %pumpList"
  //% group="Aktuatorer"
