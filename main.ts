@@ -396,13 +396,13 @@ export function heatStairs(){
   if (flag == 0) {
     stepCount[0]=bufboi[5];
     flag = 1;
-  } else if (stepCount[1]-stepCount[0] => 15) {
+  } else if (stepCount[1]-stepCount[0] >= 15) {
     setHeat(bufboi[3]+5);
-  } else if (stepCount[1]-stepCount[0] => 30) {
+  } else if (stepCount[1]-stepCount[0] >= 30) {
     setHeat(bufboi[3]+10);
-  } else if (stepCount[1]-stepCount[0] => 45) {
+  } else if (stepCount[1]-stepCount[0] >= 45) {
     setHeat(bufboi[3]+15);
-  } else if (stepCount[1]-stepCount[0] => 60) {
+  } else if (stepCount[1]-stepCount[0] >= 60) {
     setHeat(bufboi[3]+20);
     flag2 = 1;
   }
