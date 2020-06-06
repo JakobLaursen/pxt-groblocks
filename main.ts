@@ -328,6 +328,8 @@ let fakeTimeString = "0801";
     groLys(0,50);
     basic.pause(1000);
     groLys(0,100);
+    basic.pause(1000);
+    groLys(0,0);
     basic.pause(2000);
 
     groLys(1,25); //IR Light
