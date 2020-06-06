@@ -316,6 +316,71 @@ let fakeTimeString = "0801";
   }
 
   /**
+  * Runs all actuators as a test
+  */
+  //% block
+  //% group="xDebug"
+  //% advanced=true
+  export function calibrateLight(){
+    //Run White at 25, 50 and 100
+    groLys(0,25);  //White light
+    basic.pause(1000);
+    groLys(0,50);
+    basic.pause(1000);
+    groLys(0,100);
+    basic.pause(2000);
+
+    groLys(1,25); //IR Light
+    basic.pause(1000);
+    groLys(1,50);
+    basic.pause(1000);
+    groLys(1,100);
+    basic.pause(1000);
+    groLys(1,0);
+    basic.pasue(2000);
+
+    groLys(2,25); //UV Light
+    basic.pause(1000);
+    groLys(2,50);
+    basic.pause(1000);
+    groLys(2,100);
+    basic.pause(1000);
+    groLys(2,0);
+    basic.pasue(2000);
+
+    groLys(0,100); //Test White/IR
+    groLys(1,100);
+    basic.pause(1000);
+    groLys(0,0);
+    groLys(1,0);
+    basic.pause(2000);
+
+    groLys(0,100); //Test White/UV
+    groLys(2,100);
+    basic.pause(1000);
+    groLys(0,0);
+    groLys(2,0);
+    basic.pause(2000);
+
+    groLys(1,100); //Test IR/UV
+    groLys(2,100);
+    basic.pause(1000);
+    groLys(1,0);
+    groLys(2,0);
+    basic.pause(2000);
+
+    groLys(0,100);
+    groLys(1,100); //Test all channels
+    groLys(2,100);
+    basic.pause(1000);
+    groLys(1,0);
+    groLys(2,0);
+    groLys(0,0);
+    basic.pause(2000);
+
+  }
+
+  /**
   * Displays time as a string
   */
   //% block
