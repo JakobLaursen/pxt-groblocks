@@ -337,7 +337,7 @@ let fakeTimeString = "0801";
     groLys(1,100);
     basic.pause(1000);
     groLys(1,0);
-    basic.pasue(2000);
+    basic.pause(2000);
 
     groLys(2,25); //UV Light
     basic.pause(1000);
@@ -346,7 +346,7 @@ let fakeTimeString = "0801";
     groLys(2,100);
     basic.pause(1000);
     groLys(2,0);
-    basic.pasue(2000);
+    basic.pause(2000);
 
     groLys(0,100); //Test White/IR
     groLys(1,100);
