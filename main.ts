@@ -316,7 +316,7 @@ let fakeTimeString = "0801";
   }
 
   /**
-  * Runs all actuators as a test
+  * Runs all lights seqenctially
   */
   //% block
   //% group="xDebug"
@@ -379,8 +379,46 @@ let fakeTimeString = "0801";
     groLys(2,0);
     groLys(0,0);
     basic.pause(2000);
-
   }
+  /**
+  * Adds 5 deg per 15 minutes for an hour and stops
+  */
+  //% block
+  //% group="xDebug"
+  //% advanced=true
+export function heatStairs(){
+  let stepCount = [0,0,0] //snapshot time, currTime
+  let flag = 0;
+  let flag2 = 0;
+  basic.showString("Init Heatstairs")
+  basic.pause(10000);
+  stepCount[1]=bufboi[5];
+  if (flag == 0) {
+    stepCount[0]=bufboi[5];
+    flag = 1;
+  } else if (stepCount[1]-stepCount => 15) {
+    setHeat(bufboi[3]+5);
+  } else if (stepCount[1]-stepCount => 30) {
+    setHeat(bufboi[3]+10);
+  } else if (stepCount[1]-stepCount => 45) {
+    setHeat(bufboi[3]+15);
+  } else if (stepCount[1]-stepCount => 60) {
+    setHeat(bufboi[3]+20);
+    flag2 = 1;
+  }
+  }
+
+
+
+}
+
+
+}
+
+
+
+
+
 
   /**
   * Displays time as a string
@@ -451,7 +489,7 @@ control.inBackground(function () {
   }
 while(true){
   sensData();
-  basic.pause(500);
+  basic.pause(200);
 }
 
 })
