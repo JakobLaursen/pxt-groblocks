@@ -57,7 +57,7 @@ let temp = 3;
 //let door = 4;
 let clk = 5;
 let whiteState = 0; // Stores the desiered setting for WhiteLight
-let killWhite = serial.writeString( "a:" + whiteState + "|x"); //killWhite acts as a microbit persistance function
+ //killWhite acts as a microbit persistance function
 //If MB is lost, Ardu will look for rule on white light first. kW returns settig to desired 
 
   //% group="Sensorer"
@@ -134,11 +134,9 @@ j,time
     } else if (lightType == 1){
       let output = "b:" + lB + "|x";
       serial.writeString(output);
-      killWhite;
     } else if (lightType == 2){
         let output = "c:" + lB + "|x";
         serial.writeString(output);
-        killWhite;
   }
 }
 
@@ -152,22 +150,18 @@ export function setPump(actu:pumpList, setting: number){
   if (actu == 0){
     let output = "d:" + set + "|x";
     serial.writeString(output);
-    killWhite;
   }
  else if (actu == 1){
     let output = "e:" + set + "|x";
     serial.writeString(output);
-    killWhite;
   }
   else if (actu == 2){
      let output = "f:" + set + "|x";
      serial.writeString(output);
-     killWhite;
    }
    else if (actu == 3) {
       let output = "g:" + set + "|x";
       serial.writeString(output);
-      killWhite;
     }
  }
 
@@ -181,22 +175,18 @@ export function setPump(actu:pumpList, setting: number){
    if (actu == 0){
      let output = "j:" + set + "|x";
      serial.writeString(output);
-     killWhite;
    }
   else if (actu == 1){
      let output = "k:" + set + "|x";
      serial.writeString(output);
-     killWhite;
    }
    else if (actu == 2){
       let output = "l:" + set + "|x";
       serial.writeString(output);
-      killWhite;
     }
     else if (actu == 3) {
        let output = "m:" + set + "|x";
        serial.writeString(output);
-       killWhite;
      }
   }
 
@@ -211,7 +201,6 @@ export function setPump(actu:pumpList, setting: number){
     let set = setting.toString();
       let output = "h:" + set + "|x";
       serial.writeString(output);
-      killWhite;
   }
 
   /**
@@ -225,7 +214,6 @@ export function setPump(actu:pumpList, setting: number){
     let set = setting.toString();
     let output = "i:" + set + "|x";
     serial.writeString(output);
-    killWhite;
     }
   //#########################    END ACTUATORS    #########################
 
@@ -488,22 +476,29 @@ control.inBackground(function () {
 
 
     } else if (inSplit[0] == "b") {
-      //basic.showString("B"); //Debugging ReadData with string on successful read
-      //basic.pause(15);
       bufboi[2] = parseInt(inSplit[1]);
       bufboi[3] = parseInt(inSplit[2]);
 
     } else if (inSplit[0] == "c") {
-      //basic.showString("C"); //Debugging ReadData with string on successful read
-      //basic.pause(15);
+
       bufboi[4] = parseInt(inSplit[2]);
       bufboi[5] = parseInt(inSplit[2]);
 
     }
+  
+    function killWhite(){
+    serial.writeString( "a:" + whiteState + "|x");
   }
+  
+  }
+
+  
+
 while(true){
   sensData();
-  basic.pause(200);
+  basic.pause(100);
+  killWhite();
+  basic.pause(100);
 }
 
 })
