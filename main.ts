@@ -40,7 +40,7 @@ function init(){
     BaudRate.BaudRate9600
   );
   pins.digitalWritePin(DigitalPin.P2, 1);
-  basic.showString("v1");
+  basic.showString("v2");
   }
 
 //#########################    END INITILIZATION   #########################
@@ -56,6 +56,8 @@ let CO2 = 2;
 let temp = 3;
 //let door = 4;
 let clk = 5;
+let whiteState = 0;
+let killWhite = "a:" + whiteState + "|x";
 
   //% group="Sensorer"
     /**
@@ -126,13 +128,16 @@ j,time
     let lB = lightBrigt.toString();
     if (lightType == 0){
       let output = "a:" + lB + "|x";
+      whiteState = lB;
       serial.writeString(output);
     } else if (lightType == 1){
       let output = "b:" + lB + "|x";
       serial.writeString(output);
+      killWhite;
     } else if (lightType == 2){
         let output = "c:" + lB + "|x";
         serial.writeString(output);
+        killWhite;
   }
 }
 
@@ -146,18 +151,22 @@ export function setPump(actu:pumpList, setting: number){
   if (actu == 0){
     let output = "d:" + set + "|x";
     serial.writeString(output);
+    killWhite;
   }
  else if (actu == 1){
     let output = "e:" + set + "|x";
     serial.writeString(output);
+    killWhite;
   }
   else if (actu == 2){
      let output = "f:" + set + "|x";
      serial.writeString(output);
+     killWhite;
    }
    else if (actu == 3) {
       let output = "g:" + set + "|x";
       serial.writeString(output);
+      killWhite;
     }
  }
 
@@ -171,18 +180,22 @@ export function setPump(actu:pumpList, setting: number){
    if (actu == 0){
      let output = "j:" + set + "|x";
      serial.writeString(output);
+     killWhite;
    }
   else if (actu == 1){
      let output = "k:" + set + "|x";
      serial.writeString(output);
+     killWhite;
    }
    else if (actu == 2){
       let output = "l:" + set + "|x";
       serial.writeString(output);
+      killWhite;
     }
     else if (actu == 3) {
        let output = "m:" + set + "|x";
        serial.writeString(output);
+       killWhite;
      }
   }
 
@@ -197,6 +210,7 @@ export function setPump(actu:pumpList, setting: number){
     let set = setting.toString();
       let output = "h:" + set + "|x";
       serial.writeString(output);
+      killWhite;
   }
 
   /**
@@ -210,6 +224,7 @@ export function setPump(actu:pumpList, setting: number){
     let set = setting.toString();
     let output = "i:" + set + "|x";
     serial.writeString(output);
+    killWhite;
     }
   //#########################    END ACTUATORS    #########################
 
@@ -381,7 +396,7 @@ let fakeTimeString = "0801";
     basic.pause(200);
     groLys(0,0);
     basic.pause(3000);
-    
+
   }
   /**
   * Adds 5 deg per 15 minutes for an hour and stops
