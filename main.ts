@@ -290,23 +290,17 @@ let fakeTimeString = "0801";
     basic.pause(1000);
 
     //basic.showString("P"); // Pumps not checked
-    setPump(0,500); //Water pump
+    burstPump(0,100); //Water pump
     basic.pause(2000);
-    setPump(1,500); //airationPump
+    burstPump(1,100); //airationPump
     basic.pause(2000);
-    setPump(2,500); //External pump 1
+    burstPump(2,100); //External pump 1
     basic.pause(2000);
-    setPump(3,500); // External pump 2
+    burstPump(3,100); // External pump 2
     basic.pause(2000);
-    setPump(0,0);
-    basic.pause(2000);
-    setPump(1,0);
-    basic.pause(2000);
-    setPump(2,0);
-    basic.pause(2000);
-    setPump(3,0);
+    
     //basic.showString("H");
-    setHeat(100);
+    setHeat(40);
     basic.pause(2000);
     //setHeat(0,0);
     //setHeat(1,0);
