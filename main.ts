@@ -56,8 +56,9 @@ let CO2 = 2;
 let temp = 3;
 //let door = 4;
 let clk = 5;
-let whiteState = 0;
-let killWhite = "a:" + whiteState + "|x";
+let whiteState = 0; // Stores the desiered setting for WhiteLight
+let killWhite = "a:" + whiteState + "|x"; //killWhite acts as a microbit persistance function
+//If MB is lost, Ardu will look for rule on white light first. 
 
   //% group="Sensorer"
     /**
