@@ -26,6 +26,12 @@ enum lightList {
 }
 
 let bufboi = [0, 0, 0, 0, 0, 0901, 0]; //buffboi int atm
+let whiteState = 0; // Stores the desiered setting for WhiteLight
+ //killWhite acts as a microbit persistance function
+//If MB is lost, Ardu will look for rule on white light first. kW returns settig to desired 
+
+
+
 // groblocks graphics
 //% weight=100 color=#0f9c11 icon="\uf06c"
 //% groups="['Aktuatorer', Sensorer']"
@@ -56,9 +62,7 @@ let CO2 = 2;
 let temp = 3;
 //let door = 4;
 let clk = 5;
-let whiteState = 0; // Stores the desiered setting for WhiteLight
- //killWhite acts as a microbit persistance function
-//If MB is lost, Ardu will look for rule on white light first. kW returns settig to desired 
+
 
   //% group="Sensorer"
     /**
@@ -129,7 +133,7 @@ j,time
     let lB = lightBrigt.toString();
     if (lightType == 0){
       let output = "a:" + lB + "|x";
-      whiteState = lB;
+      whiteState = lightBrigt;
       serial.writeString(output);
     } else if (lightType == 1){
       let output = "b:" + lB + "|x";
@@ -486,13 +490,14 @@ control.inBackground(function () {
 
     }
   
+    
+  
+  }
+  control.inBackground(function () {
     function killWhite(){
     serial.writeString( "a:" + whiteState + "|x");
+    }
   }
-  
-  }
-
-  
 
 while(true){
   sensData();
