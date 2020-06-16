@@ -4,7 +4,7 @@ enum airList {
   //% block="Indre Blæser"
   fan
 }
-//TEEST GIT
+//TEEST GIT TEST GIT
 enum pumpList {
   //% block="Luftudskiftning"
   airationPump,
@@ -308,11 +308,9 @@ let fakeTimeString = "0801";
     //basic.showString("H");
     setHeat(100);
     basic.pause(2000);
-
-    setHeat(0);
-    basic.pause(1000);
     //setHeat(0,0);
     //setHeat(1,0);
+    basic.showString("E");
   }
 
   /**
