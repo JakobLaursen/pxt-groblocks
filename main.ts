@@ -316,61 +316,72 @@ let fakeTimeString = "0801";
   export function calibrateLight(){
     //Run White at 25, 50 and 100
     groLys(0,25);  //White light
-    basic.pause(1000);
-    groLys(0,50);
-    basic.pause(1000);
-    groLys(0,100);
-    basic.pause(1000);
-    groLys(0,0);
     basic.pause(2000);
+    groLys(0,50);
+    basic.pause(2000);
+    groLys(0,100);
+    basic.pause(2000);
+    groLys(0,0);
+    basic.pause(3000);
 
     groLys(1,25); //IR Light
-    basic.pause(1000);
-    groLys(1,50);
-    basic.pause(1000);
-    groLys(1,100);
-    basic.pause(1000);
-    groLys(1,0);
     basic.pause(2000);
+    groLys(1,50);
+    basic.pause(2000);
+    groLys(1,100);
+    basic.pause(2000);
+    groLys(1,0);
+    basic.pause(3000);
 
     groLys(2,25); //UV Light
-    basic.pause(1000);
-    groLys(2,50);
-    basic.pause(1000);
-    groLys(2,100);
-    basic.pause(1000);
-    groLys(2,0);
     basic.pause(2000);
+    groLys(2,50);
+    basic.pause(2000);
+    groLys(2,100);
+    basic.pause(2000);
+    groLys(2,0);
+    basic.pause(3000);
 
     groLys(0,100); //Test White/IR
+    basic.pause(200);
     groLys(1,100);
-    basic.pause(1000);
-    groLys(0,0);
-    groLys(1,0);
     basic.pause(2000);
+    groLys(0,0);
+    basic.pause(200);
+    groLys(1,0);
+    basic.pause(3000);
 
     groLys(0,100); //Test White/UV
+    basic.pause(200);
     groLys(2,100);
-    basic.pause(1000);
-    groLys(0,0);
-    groLys(2,0);
     basic.pause(2000);
+    groLys(0,0);
+    basic.pause(200);
+    groLys(2,0);
+    basic.pause(3000);
 
     groLys(1,100); //Test IR/UV
+    basic.pause(200);
     groLys(2,100);
-    basic.pause(1000);
-    groLys(1,0);
-    groLys(2,0);
     basic.pause(2000);
+    groLys(1,0);
+    basic.pause(200);
+    groLys(2,0);
+    basic.pause(3000);
 
     groLys(0,100);
+    basic.pause(200);
     groLys(1,100); //Test all channels
+    basic.pause(200);
     groLys(2,100);
-    basic.pause(1000);
+    basic.pause(5000);
     groLys(1,0);
+    basic.pause(200);
     groLys(2,0);
+    basic.pause(200);
     groLys(0,0);
-    basic.pause(2000);
+    basic.pause(3000);
+    
   }
   /**
   * Adds 5 deg per 15 minutes for an hour and stops
