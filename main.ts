@@ -137,12 +137,15 @@ j,time
       let output = "a:" + lB + "|x";
       //whiteState = lightBrigt;
       serial.writeString(output);
+      basic.pause(100);
     } else if (lightType == 1){
       let output = "b:" + lB + "|x";
       serial.writeString(output);
+      basic.pause(100);
     } else if (lightType == 2){
         let output = "c:" + lB + "|x";
         serial.writeString(output);
+        basic.pause(100);
   }
 }
 
@@ -495,7 +498,7 @@ control.inBackground(function () {
 
 while(true){
   sensData();
-  basic.pause(1000);
+  basic.pause(100);
   //killWhite();
   //basic.pause(100);
 }
