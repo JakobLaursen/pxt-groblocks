@@ -137,7 +137,7 @@ j,time
     let lB = lightBrigt.toString();
     if (lightType == 0){
       let output = "a:" + lB + "|x";
-
+      serial.writeString(output);
       if (wState == lightBrigt){
         basic.pause(1000);
       }
