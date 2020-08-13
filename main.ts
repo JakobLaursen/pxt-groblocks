@@ -141,7 +141,7 @@ j,time
       if (wState == lightBrigt){
         basic.pause(1000);
       }
-      let wState = lightBrigt;
+      wState = lightBrigt;
       serial.writeString(output);
       
     } else if (lightType == 1){
@@ -150,7 +150,7 @@ j,time
       if (bState == lightBrigt){
         basic.pause(1000);
       }
-      let bState = lightBrigt;
+      bState = lightBrigt;
       serial.writeString(output);
     
     } else if (lightType == 2){
@@ -158,7 +158,7 @@ j,time
         if (rState == lightBrigt){
           basic.pause(1000);
         }
-        let rState = lightBrigt;
+        rState = lightBrigt;
         serial.writeString(output);
        
   }
