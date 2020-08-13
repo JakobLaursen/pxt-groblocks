@@ -26,7 +26,7 @@ enum lightList {
 }
 
 let bufboi = [0, 0, 0, 0, 0, 0901, 0]; //buffboi int atm
-let whiteState = 0; // Stores the desiered setting for WhiteLight
+//let whiteState = 0; // Stores the desiered setting for WhiteLight
  //killWhite acts as a microbit persistance function
 //If MB is lost, Ardu will look for rule on white light first. kW returns settig to desired 
 
@@ -46,7 +46,7 @@ function init(){
     BaudRate.BaudRate9600
   );
   pins.digitalWritePin(DigitalPin.P2, 1);
-  basic.showString("v2");
+  basic.showString("v3");
   }
 
 //#########################    END INITILIZATION   #########################
@@ -133,7 +133,7 @@ j,time
     let lB = lightBrigt.toString();
     if (lightType == 0){
       let output = "a:" + lB + "|x";
-      whiteState = lightBrigt;
+      //whiteState = lightBrigt;
       serial.writeString(output);
     } else if (lightType == 1){
       let output = "b:" + lB + "|x";
