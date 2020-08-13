@@ -486,16 +486,16 @@ control.inBackground(function () {
     } 
   }
  
-  function killWhite(){
-    serial.writeString( "a:" + whiteState + "|x");
-  }
+  //function killWhite(){
+  //  serial.writeString( "a:" + whiteState + "|x");
+  //}
   
 
 while(true){
   sensData();
-  basic.pause(100);
-  killWhite();
-  basic.pause(100);
+  //basic.pause(100);
+  //killWhite();
+  //basic.pause(100);
 }
 
 })
