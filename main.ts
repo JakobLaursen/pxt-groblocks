@@ -1,29 +1,29 @@
 //Auth
 
 enum airList {
-  //% block="Varmelegeme"
+  //% block="Varmelegme"
   heater,
   //% block="Indre Blæser"
   fan
 }
 //TEEST GIT TEST GIT
 enum pumpList {
-  //% block="Luftudskiftning"
+  //% block="Airexchange"
   airationPump,
-  //% block="Ekstern pumpe 1"
+  //% block="External pump 1"
   fert1Pump,
-  //% block="Ekstern pumpe 2"
+  //% block="External pump 2"
   fert2Pump,
   //% block="Luftsten"
   waterPump,
 }
 
 enum lightList {
-    //% block="Hvidt lys"
+    //% block="White light"
     whiteGrow,
-    //% block="Infrarødt lys"
+    //% block="Infrared light"
     irGrow,
-    //% block="Ultraviolet lys"
+    //% block="Ultraviolet light"
     uvGrow,
 }
 
@@ -39,7 +39,7 @@ let rState = 0;
 // groblocks graphics
 //% weight=100 color=#0f9c11 icon="\uf06c"
 //% groups="['Aktuatorer', Sensorer']"
-namespace groblokke {
+namespace growblocks {
 
   //#########################    INITILIZATION   #########################
 
@@ -68,12 +68,12 @@ let temp = 3;
 let clk = 5;
 
 
-  //% group="Sensorer"
+  //% group="Sensors"
     /**
     * Luftfugtighedsmåler 0-100 procent
     */
     //% block
-  export function Luftfugtighed(): number {
+  export function Humidity(): number {
     return bufboi[hum];
   }
 
@@ -81,8 +81,8 @@ let clk = 5;
   * Vandstandsmåler
   */
   //% block
-  //% group="Sensorer"
-  export function Vandstand(): number {
+  //% group="Sensors"
+  export function Waterlevel(): number {
     return bufboi[water];
   }
 
@@ -90,7 +90,7 @@ let clk = 5;
   * CO2-Måler ppm
   */
   //% block
-  //% group="Sensorer"
+  //% group="Sensors"
   export function co2(): number {
     return bufboi[CO2];
   }
@@ -98,8 +98,8 @@ let clk = 5;
  * Temperatursensor
  */
  //% block
- //% group="Sensorer"
- export function temperatur(): number {
+ //% group="Sensors"
+ export function Temperature(): number {
   return bufboi[temp];
 }
 
@@ -108,8 +108,8 @@ let clk = 5;
   * Klokken i 24 timersformat. Blokken fjerner foranstillede nuller. Dvs klokken 0800 forstås 800. Der må kun være tal i Tidsblokken dvs ingen 21:00 osv.
   */
   //% block
-  //% group="Sensorer"
-  export function tid(): number {
+  //% group="Sensors"
+  export function time(): number {
     return bufboi[clk];
 }
 //#########################    END SENSORS    #########################
@@ -130,8 +130,8 @@ j,time
   /**
   * Angiv hvor intenst lyset skal være på en skala 0 til 100 procent
   */
-  //% blockId=mockUpLight block="Lysstyrken for %lightList til %brightness"
-  //% group="Aktuatorer"
+  //% blockId=mockUpLight block="Brightness for %lightList to %brightness"
+  //% group="Actuators"
   //% lightBrigt.min=0 lightBrigt.max=100
   export function groLys(lightType: lightList, lightBrigt: number){
     let lB = lightBrigt.toString();
@@ -170,8 +170,8 @@ j,time
 /**
 *Angiv hvor meget flow du ønsker i mililiter per time.
 */
-//% blockId=pumpeActu block="Sæt %pumpList til %randNum mL/t"
-//% group="Aktuatorer"
+//% blockId=pumpeActu block="Set %pumpList til %randNum mL/t"
+//% group="Actuators"
 export function setPump(actu:pumpList, setting: number){
   let set = setting.toString();
   if (actu == 0){
@@ -195,8 +195,8 @@ export function setPump(actu:pumpList, setting: number){
  /**
  *Angiv størrelsen på enkeltdosis i mL.
  */
- //% blockId=pumpeburst block="Dosér %randNum mL fra %pumpList"
- //% group="Aktuatorer"
+ //% blockId=pumpeburst block="Dose size %randNum mL from %pumpList"
+ //% group="Actuators"
  export function burstPump(setting: number, actu:pumpList){
    let set = setting.toString();
    if (actu == 0){
@@ -221,8 +221,8 @@ export function setPump(actu:pumpList, setting: number){
   * Angiv den ønskede temperatur i vækstkammeret i celcius
   * NB. Den indre blæser kører altid når varmelegemet er tændt
   */
-  //% blockId=airActu block="Opvarm til %randNum °C"
-  //% group="Aktuatorer"
+  //% blockId=airActu block="Heat to %randNum °C"
+  //% group="Actuators"
   //% setting.min=0 setting.max=40
   export function setHeat(setting: number){
     let set = setting.toString();
@@ -234,8 +234,8 @@ export function setPump(actu:pumpList, setting: number){
   * Angiv om den indre blæser skal være tændt eller slukket. Værdien 0 er slukket
   * mens 1 er tændt. NB. Blæseren kører altid når varmelegemet er tændt
   */
-  //% blockId=internalFan block="Blæser Sluk/Tænd %randNum"
-  //% group="Aktuatorer"
+  //% blockId=internalFan block="Fan off/on %randNum"
+  //% group="Actuators"
   //% setting.min=0 setting.max=1
   export function fan(setting: number){
     let set = setting.toString();
